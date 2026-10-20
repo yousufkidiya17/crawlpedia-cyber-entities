@@ -22,3 +22,15 @@
     amber:  { name: "SOLAR AMBER", primary: "#ffb700", glow: "rgba(255, 183, 0, 0.85)",  dim: "rgba(255, 183, 0, 0.25)",  text: "#ffd566" }
   };
 
+  let currentPaletteKey = "red";
+  let activeTheme = PALETTES[currentPaletteKey];
+  let currentMode = "spider"; // "spider" | "centipede" | "rover"
+  let paused = false;
+  let glitchEnabled = true;
+  let speedMultiplier = 1.0;
+    // ==============================================================================
+  // AI Jargon Decryptor & Real-time Lexicon Engine (Offline Builtin + Wiki REST API)
+  // ==============================================================================
+  const BUILTIN_LEXICON = {
+    spider: { pos: "NOUN", phonetic: "/ˈspaɪ.dər/", text: "Eight-legged predatory arachnid that spins silk webs to catch prey." },
+    spiders: { pos: "NOUN", phonetic: "/ˈspaɪ.dərz/", text: "Air-breathing predatory arachnids of the biological order Araneae." },
