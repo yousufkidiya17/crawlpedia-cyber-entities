@@ -58,3 +58,15 @@
   let currentDefinition = null; // { word, pos, text, phonetic, status }
   let definitionsEnabled = true;
 
+  const fetchWordDefinition = async (rawWord) => {
+    if (!definitionsEnabled || !rawWord) return;
+    const clean = rawWord.toLowerCase().replace(/[^a-z]/g, "");
+    if (clean.length < 3) return;
+
+    // Check Memory Cache
+    if (definitionCache.has(clean)) {
+      currentDefinition = definitionCache.get(clean);
+      return;
+    }
+
+    // Check Built-in Lexicon (Instant 0ms, Immune to CSP)
