@@ -130,3 +130,15 @@
       pos: "TOKEN",
       text: "Validated structural semantic token within active webpage document context.",
       phonetic: "",
+      status: "ready"
+    };
+    definitionCache.set(clean, fallback);
+    currentDefinition = fallback;
+  };
+
+  // ==============================================================================
+  // Procedural Cybernetic Audio Synthesizer (Web Audio API - Zero External Assets)
+  // Synthesizes the exact mechanical scuttle, radar pings, and matrix glitch chirps
+  // ==============================================================================
+  let audioCtx = null;
+  let soundEnabled = true;
