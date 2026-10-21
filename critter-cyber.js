@@ -178,3 +178,15 @@
   };
 
 
+  // ==============================================================================
+  // Footstep Electric Arc Sparks & Contact Shockwave Rings
+  // Generates sparks & ripples whenever legs step down onto text words
+  // ==============================================================================
+  const footstepSparks = [];  // { x, y, vx, vy, life, maxLife, color }
+  const footstepRipples = []; // { x, y, r, maxR, alpha }
+
+  const triggerFootstepContact = (x, y) => {
+    playLegClick(1.0);
+    // Shockwave contact ripples
+    if (footstepRipples.length < 16) {
+      footstepRipples.push({ x, y, r: 2, maxR: 24, alpha: 0.85 });
