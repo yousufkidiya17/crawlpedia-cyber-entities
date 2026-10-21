@@ -142,3 +142,15 @@
   // ==============================================================================
   let audioCtx = null;
   let soundEnabled = true;
+  let lastStepSoundTime = 0;
+
+  // ==============================================================================
+  // Multi-Layer Vibration & Haptic Engine
+  // 1. Hardware Haptic Motor (navigator.vibrate)
+  // 2. Sub-Bass Acoustic Rumble (50Hz speaker/earcup vibration)
+  // 3. Visual Micro Screen-Shake (Tactile impact jitter)
+  // ==============================================================================
+  let screenShake = 0; // Screen jitter magnitude
+
+  const triggerHaptic = (pattern) => {
+    if (navigator && navigator.vibrate) {
