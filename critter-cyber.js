@@ -82,3 +82,15 @@
 
     // Try Wikipedia Summary API (Allowed by Wikipedia CSP)
     try {
+      const wResp = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(clean)}`);
+      if (wResp.ok) {
+        const wData = await wResp.json();
+        if (wData && wData.extract) {
+          const res = {
+            word: clean,
+            pos: (wData.description || "LEXICON").toUpperCase().slice(0, 16),
+            text: wData.extract.split(". ")[0] + ".",
+            phonetic: "",
+            status: "ready"
+          };
+          definitionCache.set(clean, res);
