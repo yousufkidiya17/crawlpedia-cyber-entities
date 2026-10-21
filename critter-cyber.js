@@ -106,3 +106,15 @@
       if (dResp.ok) {
         const dData = await dResp.json();
         if (dData && dData[0] && dData[0].meanings && dData[0].meanings[0]) {
+          const m = dData[0].meanings[0];
+          const pos = (m.partOfSpeech || "noun").toUpperCase();
+          const def = m.definitions && m.definitions[0] ? m.definitions[0].definition : "Definition verified.";
+          const phonetic = dData[0].phonetic || "";
+          const res = {
+            word: clean,
+            pos,
+            text: def,
+            phonetic,
+            status: "ready"
+          };
+          definitionCache.set(clean, res);
