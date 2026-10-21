@@ -70,3 +70,15 @@
     }
 
     // Check Built-in Lexicon (Instant 0ms, Immune to CSP)
+    if (BUILTIN_LEXICON[clean]) {
+      const res = { word: clean, ...BUILTIN_LEXICON[clean], status: "ready" };
+      definitionCache.set(clean, res);
+      currentDefinition = res;
+      return;
+    }
+
+    // Set immediate loading state
+    currentDefinition = { word: clean, pos: "SCANNING", text: "Decrypting lexical definition from database...", phonetic: "", status: "loading" };
+
+    // Try Wikipedia Summary API (Allowed by Wikipedia CSP)
+    try {
