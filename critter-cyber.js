@@ -94,3 +94,15 @@
             status: "ready"
           };
           definitionCache.set(clean, res);
+          currentDefinition = res;
+          return;
+        }
+      }
+    } catch (_) {}
+
+    // Try Free Dictionary API
+    try {
+      const dResp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${clean}`);
+      if (dResp.ok) {
+        const dData = await dResp.json();
+        if (dData && dData[0] && dData[0].meanings && dData[0].meanings[0]) {
