@@ -154,3 +154,15 @@
 
   const triggerHaptic = (pattern) => {
     if (navigator && navigator.vibrate) {
+      try { navigator.vibrate(pattern); } catch (_) {}
+    }
+  };
+
+  const playSubBassThud = (vol = 0.18, freq = 55, dur = 0.09) => {
+    if (!soundEnabled || !audioCtx || audioCtx.state !== "running") return;
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(freq, now);
