@@ -322,3 +322,15 @@
   };
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
+
+  // Safe Element Filter for Live Websites (protects forms, inputs, scripts, modals)
+  const isSafeElement = el => el && !el.closest("input,textarea,select,[contenteditable],[contenteditable=\"true\"],script,style,noscript,canvas,iframe,#__crawlpedia_hud");
+
+  // Sub-pixel DOM Text Word Harvesting using standard Range API
+  
+  // ==============================================================================
+  // "Set-of-Mark" (SoM) Interactive Target Radar Scanner
+  // Scans visible buttons, search inputs, and links & assigns numbered badges [ 01 ]
+  // ==============================================================================
+  let interactiveTargets = []; // { id, badge, el, type, label, x, y, w, h }
+  let radarEnabled = true;
