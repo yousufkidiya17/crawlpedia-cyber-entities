@@ -346,3 +346,15 @@
 
     candidates.forEach(el => {
       if (!isSafeElement(el)) return;
+      if (el.closest("#__crawlpedia_hud")) return;
+
+      const rect = el.getBoundingClientRect();
+      // Must be visible in reasonable viewport
+      if (rect.width < 14 || rect.height < 10) return;
+      if (rect.bottom < -50 || rect.top > window.innerHeight + 50) return;
+
+      const style = window.getComputedStyle(el);
+      if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") return;
+
+      // Extract Clean Label
+      let type = "ACTION";
