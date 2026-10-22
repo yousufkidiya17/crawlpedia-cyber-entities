@@ -394,3 +394,15 @@
     }));
   };
   scanInteractiveTargets();
+
+
+
+  let harvestedWords = [];
+  const harvestWords = () => {
+    harvestedWords = [];
+    if (!document.body) return;
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+    const range = document.createRange();
+    while ((node = walker.nextNode()) && harvestedWords.length < 1200) {
+      const text = node.textContent;
