@@ -238,3 +238,15 @@
     gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.018);
 
     osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.02);
+  };
+
+  // 2. Matrix Text Decrypt / Glitch Chatter (High-tech FM data chirps)
+  const playGlitchChirp = (vol = 1.0) => {
+    if (!soundEnabled || !audioCtx || audioCtx.state !== "running") return;
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
