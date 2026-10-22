@@ -262,3 +262,15 @@
     gain.connect(audioCtx.destination);
     osc.start(now);
     osc.stop(now + 0.026);
+  };
+
+  // 3. Sonar Radar Pulse Ping
+  const playRadarPing = (vol = 1.0) => {
+    if (!soundEnabled || !audioCtx || audioCtx.state !== "running") return;
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(1600, now);
+    osc.frequency.exponentialRampToValueAtTime(700, now + 0.14);
