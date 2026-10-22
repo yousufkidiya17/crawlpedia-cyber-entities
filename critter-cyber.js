@@ -310,3 +310,15 @@
   // Create High-DPI Fullscreen Canvas Overlay (pointer-events: none so live page remains 100% interactive)
   const canvas = document.createElement("canvas");
   canvas.id = "__crawlpedia_canvas";
+  canvas.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;z-index:2147483645;pointer-events:none;background:transparent;";
+  (document.body || document.documentElement).appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+
+  const resizeCanvas = () => {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
