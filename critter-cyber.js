@@ -190,3 +190,15 @@
     // Shockwave contact ripples
     if (footstepRipples.length < 16) {
       footstepRipples.push({ x, y, r: 2, maxR: 24, alpha: 0.85 });
+    }
+    // High-voltage electric arc sparks
+    if (footstepSparks.length < 40) {
+      for (let i = 0; i < 4; i++) {
+        const ang = Math.random() * Math.PI * 2;
+        const spd = 60 + Math.random() * 140;
+        footstepSparks.push({
+          x,
+          y,
+          vx: Math.cos(ang) * spd,
+          vy: Math.sin(ang) * spd - 35,
+          life: 0.22 + Math.random() * 0.12,
