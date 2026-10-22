@@ -358,3 +358,15 @@
 
       // Extract Clean Label
       let type = "ACTION";
+      const tag = el.tagName.toLowerCase();
+      if (tag === "input" || tag === "textarea") {
+        type = "INPUT";
+      } else if (tag === "button" || el.getAttribute("role") === "button") {
+        type = "BUTTON";
+      } else if (tag === "a") {
+        type = "LINK";
+      }
+
+      let label = (el.innerText || el.placeholder || el.getAttribute("aria-label") || el.title || el.name || el.value || "").trim();
+      label = label.replace(/[\r\n\t]+/g, " ").slice(0, 16);
+      if (!label && type === "INPUT") label = "Search/Text";
