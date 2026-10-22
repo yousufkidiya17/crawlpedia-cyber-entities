@@ -286,3 +286,15 @@
 
   // 4. Target Locked Beep
   const playTargetLocked = (vol = 1.0) => {
+    if (!soundEnabled || !audioCtx || audioCtx.state !== "running") return;
+    const now = audioCtx.currentTime;
+    [2400, 3400].forEach((f, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const st = now + i * 0.045;
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(f, st);
+
+      gain.gain.setValueAtTime(vol, st);
+      gain.gain.exponentialRampToValueAtTime(0.0001, st + 0.04);
