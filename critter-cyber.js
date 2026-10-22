@@ -274,3 +274,15 @@
     osc.type = "sine";
     osc.frequency.setValueAtTime(1600, now);
     osc.frequency.exponentialRampToValueAtTime(700, now + 0.14);
+
+    gain.gain.setValueAtTime(vol, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.15);
+  };
+
+  // 4. Target Locked Beep
+  const playTargetLocked = (vol = 1.0) => {
