@@ -214,3 +214,15 @@
     if (!audioCtx) {
       const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
       if (AudioCtxClass) {
+        audioCtx = new AudioCtxClass();
+      }
+    }
+    if (audioCtx && audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+  };
+
+  // 1. Mechanical Leg Scuttle Click (High-frequency tactile click)
+  const playLegClick = (vol = 1.0) => {
+    if (!soundEnabled || !audioCtx || audioCtx.state !== "running") return;
+    const now = audioCtx.currentTime;
