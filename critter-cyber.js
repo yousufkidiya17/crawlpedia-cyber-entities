@@ -250,3 +250,15 @@
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
 
+    osc.type = Math.random() > 0.4 ? "sawtooth" : "square";
+    const baseF = 1400 + Math.random() * 2600;
+    osc.frequency.setValueAtTime(baseF, now);
+    osc.frequency.exponentialRampToValueAtTime(baseF * (0.5 + Math.random() * 0.9), now + 0.024);
+
+    gain.gain.setValueAtTime(vol, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.024);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.026);
