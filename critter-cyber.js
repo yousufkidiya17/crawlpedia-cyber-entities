@@ -370,3 +370,15 @@
       let label = (el.innerText || el.placeholder || el.getAttribute("aria-label") || el.title || el.name || el.value || "").trim();
       label = label.replace(/[\r\n\t]+/g, " ").slice(0, 16);
       if (!label && type === "INPUT") label = "Search/Text";
+      if (!label) label = type;
+
+      visibleList.push({
+        el,
+        type,
+        label,
+        x: rect.left + window.scrollX + rect.width * 0.5,
+        y: rect.top + window.scrollY + rect.height * 0.5,
+        w: rect.width,
+        h: rect.height,
+        screenX: rect.left,
+        screenY: rect.top
