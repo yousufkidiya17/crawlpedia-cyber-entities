@@ -334,3 +334,15 @@
   // ==============================================================================
   let interactiveTargets = []; // { id, badge, el, type, label, x, y, w, h }
   let radarEnabled = true;
+
+  const scanInteractiveTargets = () => {
+    if (!radarEnabled || !document.body) {
+      interactiveTargets = [];
+      return;
+    }
+
+    const candidates = document.querySelectorAll("button, input, textarea, select, [role='button'], [role='link'], a[href]");
+    const visibleList = [];
+
+    candidates.forEach(el => {
+      if (!isSafeElement(el)) return;
