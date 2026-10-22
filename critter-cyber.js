@@ -382,3 +382,15 @@
         h: rect.height,
         screenX: rect.left,
         screenY: rect.top
+      });
+    });
+
+    // Sort by screen position (top to bottom) & assign top 16 badges
+    visibleList.sort((a, b) => (a.screenY - b.screenY) || (a.screenX - b.screenX));
+    interactiveTargets = visibleList.slice(0, 16).map((item, idx) => ({
+      ...item,
+      id: idx + 1,
+      badge: `0${idx + 1}`.slice(-2)
+    }));
+  };
+  scanInteractiveTargets();
