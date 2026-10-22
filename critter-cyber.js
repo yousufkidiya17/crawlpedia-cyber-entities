@@ -226,3 +226,15 @@
   const playLegClick = (vol = 1.0) => {
     if (!soundEnabled || !audioCtx || audioCtx.state !== "running") return;
     const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "triangle";
+    const freq = 1800 + Math.random() * 1200;
+    osc.frequency.setValueAtTime(freq, now);
+    osc.frequency.exponentialRampToValueAtTime(250, now + 0.018);
+
+    gain.gain.setValueAtTime(vol, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.018);
+
+    osc.connect(gain);
