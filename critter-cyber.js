@@ -202,3 +202,15 @@
           vx: Math.cos(ang) * spd,
           vy: Math.sin(ang) * spd - 35,
           life: 0.22 + Math.random() * 0.12,
+          maxLife: 0.34,
+          color: Math.random() > 0.4 ? activeTheme.primary : "#ffffff"
+        });
+      }
+    }
+  };
+
+
+  const initAudio = () => {
+    if (!audioCtx) {
+      const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtxClass) {
