@@ -298,3 +298,15 @@
 
       gain.gain.setValueAtTime(vol, st);
       gain.gain.exponentialRampToValueAtTime(0.0001, st + 0.04);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(st);
+      osc.stop(st + 0.045);
+    });
+  };
+
+
+  // Create High-DPI Fullscreen Canvas Overlay (pointer-events: none so live page remains 100% interactive)
+  const canvas = document.createElement("canvas");
+  canvas.id = "__crawlpedia_canvas";
