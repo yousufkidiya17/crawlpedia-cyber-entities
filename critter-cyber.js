@@ -562,3 +562,15 @@
     const ay = pos.y + sin * forwardOffset + cos * lateralOffset;
 
     // PHYSICAL WORD CLAMPING / GRIPPING (From the Video):
+    // When decrypting a word, front limbs actively reach out and pin/clamp onto the word boundaries!
+    if (state === "DECRYPTING" && target && target.w && (L.row === 0 || L.row === 1)) {
+      const wx = target.w.x - window.scrollX;
+      const wy = target.w.y - window.scrollY;
+      const halfW = Math.max(16, target.w.w * 0.5);
+      const halfH = Math.max(8, target.w.h * 0.5);
+      const gripPulse = Math.sin(telemetryFrame * 0.35) * 3;
+
+      if (L.row === 0) {
+        // Front Row Claws: Pin directly onto the left & right edges of the word
+        return {
+          ax, ay,
