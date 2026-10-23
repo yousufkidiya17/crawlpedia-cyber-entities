@@ -490,3 +490,15 @@
       w.node.remove();
 
       const interval = setInterval(() => {
+        iteration++;
+      playGlitchChirp();
+        span.textContent = originalText.split("").map((char, index) => {
+          if (index < (iteration / maxIterations) * originalText.length) {
+            return originalText[index];
+          }
+          return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        }).join("");
+
+        if (iteration >= maxIterations) {
+          clearInterval(interval);
+          span.textContent = originalText;
