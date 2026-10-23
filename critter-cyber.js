@@ -502,3 +502,15 @@
         if (iteration >= maxIterations) {
           clearInterval(interval);
           span.textContent = originalText;
+          setTimeout(() => {
+            if (span.parentNode) {
+              span.replaceWith(document.createTextNode(originalText));
+              try { parent.normalize(); } catch (_) {}
+            }
+            activeGlitches.delete(parent);
+          }, 1000);
+        }
+      }, 25);
+
+      activeGlitches.set(parent, interval);
+    } catch (_) {}
