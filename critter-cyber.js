@@ -466,3 +466,15 @@
       span.style.cssText = `
         color: ${activeTheme.primary} !important;
         text-shadow: 0 0 12px ${activeTheme.glow} !important;
+        background: rgba(8, 12, 18, 0.88) !important;
+        border: 1px solid ${activeTheme.primary} !important;
+        border-radius: 4px !important;
+        padding: 1px 5px !important;
+        font-family: ui-monospace, SFMono-Regular, "Courier New", monospace !important;
+        font-weight: bold !important;
+        display: inline-block !important;
+        transform: translateY(-6px) scale(1.18) !important;
+        box-shadow: 0 6px 18px ${activeTheme.glow} !important;
+        transition: transform 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        z-index: 2147483646 !important;
+      `;
