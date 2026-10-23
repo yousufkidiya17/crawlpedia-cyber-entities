@@ -514,3 +514,15 @@
 
       activeGlitches.set(parent, interval);
     } catch (_) {}
+  };
+
+  // Creature State & Kinematics
+  let pos = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5 };
+  let target = null;
+  let angle = 0;
+  let speed = 0;
+  let state = "SCANNING"; // "SCANNING" | "HUNTING" | "DECRYPTING"
+  let stateTimer = 0;
+  let mousePos = { x: -999, y: -999 };
+  let mouseActive = false;
+  let lastFilamentAnchor = { x: -999, y: -999 };
