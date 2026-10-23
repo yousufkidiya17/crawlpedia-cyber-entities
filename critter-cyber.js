@@ -574,3 +574,15 @@
         // Front Row Claws: Pin directly onto the left & right edges of the word
         return {
           ax, ay,
+          tx: wx + L.side * (halfW + 4) + gripPulse * L.side,
+          ty: wy + halfH * 0.2 + gripPulse * 0.5
+        };
+      } else if (L.row === 1) {
+        // Row 1 Limbs: Brace top corners of the word
+        return {
+          ax, ay,
+          tx: wx + L.side * (halfW * 0.7),
+          ty: wy - halfH - 4 + gripPulse
+        };
+      }
+    }
