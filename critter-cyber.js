@@ -430,3 +430,15 @@
         } catch (_) {}
       }
     }
+  };
+  harvestWords();
+
+  let scrollTimeout = null;
+  const onScroll = () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      harvestWords();
+      scanInteractiveTargets();
+    }, 200);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
