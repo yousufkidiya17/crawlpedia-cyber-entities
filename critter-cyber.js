@@ -406,3 +406,15 @@
     const range = document.createRange();
     while ((node = walker.nextNode()) && harvestedWords.length < 1200) {
       const text = node.textContent;
+      if (!/[A-Za-z0-9]{4,}/.test(text)) continue;
+      const parent = node.parentElement;
+      if (!isSafeElement(parent)) continue;
+
+      const matches = [...text.matchAll(/[A-Za-z][A-Za-z0-9'-]{3,}/g)];
+      for (const m of matches.slice(0, 4)) {
+        try {
+          range.setStart(node, m.index);
+          range.setEnd(node, m.index + m[0].length);
+          const rect = range.getBoundingClientRect();
+          if (rect.width < 12 || rect.height < 6) continue;
+          harvestedWords.push({
