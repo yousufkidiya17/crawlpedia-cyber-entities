@@ -550,3 +550,15 @@
         wasLifting: false,
         phase: Math.random() * Math.PI * 2
       });
+    }
+  }
+
+    const getLegRest = (L) => {
+    const forwardOffset = (1.5 - L.row) * 20;
+    const lateralOffset = L.side * 26;
+    const reach = L.row === 1 || L.row === 2 ? 150 : 130;
+    const cos = Math.cos(angle), sin = Math.sin(angle);
+    const ax = pos.x + cos * forwardOffset - sin * lateralOffset;
+    const ay = pos.y + sin * forwardOffset + cos * lateralOffset;
+
+    // PHYSICAL WORD CLAMPING / GRIPPING (From the Video):
