@@ -442,3 +442,15 @@
     }, 200);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Matrix Text Decrypt / Glitch Engine
+  const GLYPHS = "01#%&_§?*+~=X$Ø10987654321";
+  const activeGlitches = new Map();
+
+  const triggerWordGlitch = (w) => {
+    if (!glitchEnabled || !w || !w.parent || !w.node || !w.node.isConnected || activeGlitches.has(w.parent)) return;
+    const originalText = w.word;
+    const nodeText = w.node.textContent || "";
+    const idx = nodeText.indexOf(originalText);
+    if (idx === -1) return;
+
