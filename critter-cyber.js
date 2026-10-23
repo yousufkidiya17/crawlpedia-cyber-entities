@@ -418,3 +418,15 @@
           const rect = range.getBoundingClientRect();
           if (rect.width < 12 || rect.height < 6) continue;
           harvestedWords.push({
+            node,
+            parent,
+            word: m[0],
+            charIndex: m.index,
+            x: rect.left + window.scrollX + rect.width * 0.5,
+            y: rect.top + window.scrollY + rect.height * 0.5,
+            w: rect.width,
+            h: rect.height
+          });
+        } catch (_) {}
+      }
+    }
