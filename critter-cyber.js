@@ -454,3 +454,15 @@
     const idx = nodeText.indexOf(originalText);
     if (idx === -1) return;
 
+    let iteration = 0;
+    const maxIterations = 12;
+
+    try {
+      const beforeText = nodeText.slice(0, idx);
+      const afterText = nodeText.slice(idx + originalText.length);
+
+      const span = document.createElement("span");
+      span.setAttribute("data-crawlpedia-glitch", "true");
+      span.style.cssText = `
+        color: ${activeTheme.primary} !important;
+        text-shadow: 0 0 12px ${activeTheme.glow} !important;
