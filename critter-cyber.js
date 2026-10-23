@@ -538,3 +538,15 @@
   const chain = Array.from({ length: chainLength }, (_, i) => ({ x: pos.x - i * 14, y: pos.y, angle: 0 }));
 
   // Spider IK Legs
+  const spiderLegs = [];
+  for (const side of [-1, 1]) {
+    for (let row = 0; row < 4; row++) {
+      spiderLegs.push({
+        side,
+        row,
+        fx: pos.x,
+        fy: pos.y,
+        lift: 0,
+        wasLifting: false,
+        phase: Math.random() * Math.PI * 2
+      });
