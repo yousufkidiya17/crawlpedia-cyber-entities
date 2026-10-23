@@ -526,3 +526,15 @@
   let mousePos = { x: -999, y: -999 };
   let mouseActive = false;
   let lastFilamentAnchor = { x: -999, y: -999 };
+
+  // Laser Filament Silk Lines with Traveling Data Packets (Surface Engine Architecture)
+  const laserFilaments = []; // { docX, docY, word, born, packets: [] }
+
+  // Radar Sweeps
+  const radarWaves = []; // { x, y, r, alpha }
+
+  // Centipede Chain
+  const chainLength = 26;
+  const chain = Array.from({ length: chainLength }, (_, i) => ({ x: pos.x - i * 14, y: pos.y, angle: 0 }));
+
+  // Spider IK Legs
