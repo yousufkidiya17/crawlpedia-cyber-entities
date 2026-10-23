@@ -478,3 +478,15 @@
         transition: transform 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
         z-index: 2147483646 !important;
       `;
+      span.textContent = originalText;
+
+      const parent = w.parent;
+      const beforeNode = document.createTextNode(beforeText);
+      const afterNode = document.createTextNode(afterText);
+
+      parent.insertBefore(beforeNode, w.node);
+      parent.insertBefore(span, w.node);
+      parent.insertBefore(afterNode, w.node);
+      w.node.remove();
+
+      const interval = setInterval(() => {
