@@ -826,3 +826,15 @@
 
   const handlePointerDown = (e) => {
     initAudio();
+    if (e.target.closest("#__crawlpedia_hud")) return;
+    mouseActive = false;
+    target = { x: e.clientX, y: e.clientY, w: null };
+    state = "HUNTING";
+  };
+  window.addEventListener("pointerdown", handlePointerDown, true);
+
+  // 3-Point Inverse Kinematics Calculator for Spider Legs
+  const solveIKKnee = (ax, ay, fx, fy, l1, l2, bendSide) => {
+    let dx = fx - ax, dy = fy - ay;
+    let dist = Math.hypot(dx, dy) || 1;
+    dist = Math.min(dist, l1 + l2 - 0.5);
