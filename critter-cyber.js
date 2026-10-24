@@ -730,3 +730,15 @@
     soundBtn.style.opacity = soundEnabled ? "1" : "0.5";
   });
 
+  const glitchBtn = makeHudButton("GLITCH: ON", "Toggle Text Scrambler", () => {
+    glitchEnabled = !glitchEnabled;
+    glitchBtn.textContent = glitchEnabled ? "GLITCH: ON" : "GLITCH: OFF";
+    glitchBtn.style.opacity = glitchEnabled ? "1" : "0.5";
+  });
+
+  const closeBtn = makeHudButton("✕", "Terminate Entity and Restore Page (ESC)", () => {
+    terminate();
+  });
+
+  // Clean Termination Logic (Zero Residue)
+  const terminate = () => {
