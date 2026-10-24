@@ -598,3 +598,15 @@
   });
 
   // Pick Next Word Target
+  const pickTargetWord = () => {
+    const visible = harvestedWords.filter(w => {
+      const vx = w.x - window.scrollX;
+      const vy = w.y - window.scrollY;
+      return vx > 60 && vx < window.innerWidth - 60 && vy > 60 && vy < window.innerHeight - 60;
+    });
+
+    if (visible.length) {
+      const choice = visible[Math.floor(Math.random() * visible.length)];
+      target = { x: choice.x - window.scrollX, y: choice.y - window.scrollY, w: choice };
+      state = "HUNTING";
+      fetchWordDefinition(choice.word);
