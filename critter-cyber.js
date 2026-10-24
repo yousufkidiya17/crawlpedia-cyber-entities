@@ -694,3 +694,15 @@
   });
 
   const colorBtn = makeHudButton("RED", "Switch Neon Laser Palette (C)", () => {
+    const keys = Object.keys(PALETTES);
+    const nextIdx = (keys.indexOf(currentPaletteKey) + 1) % keys.length;
+    currentPaletteKey = keys[nextIdx];
+    activeTheme = PALETTES[currentPaletteKey];
+    colorBtn.textContent = currentPaletteKey.toUpperCase();
+    colorBtn.style.color = activeTheme.primary;
+  });
+
+  const speedBtn = makeHudButton("1x", "Speed Multiplier", () => {
+    if (speedMultiplier === 1.0) speedMultiplier = 1.8;
+    else if (speedMultiplier === 1.8) speedMultiplier = 0.6;
+    else speedMultiplier = 1.0;
