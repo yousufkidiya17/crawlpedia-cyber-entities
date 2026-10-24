@@ -622,3 +622,15 @@
   pickTargetWord();
 
   // Floating Cyber HUD Bar (Draggable, Collapsible, Clean UX)
+  const hudContainer = document.createElement("div");
+  hudContainer.id = "__crawlpedia_hud";
+  hudContainer.style.cssText = `
+    position: fixed; top: 16px; right: 18px; z-index: 2147483647;
+    display: flex; gap: 6px; align-items: center;
+    background: rgba(13, 17, 23, 0.94); border: 1px solid #30363d;
+    padding: 6px 10px; border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+    font-family: ui-monospace, SFMono-Regular, "Courier New", monospace; font-size: 11px; color: #e6edf3;
+    user-select: none;
+  `;
+  (document.body || document.documentElement).appendChild(hudContainer);
