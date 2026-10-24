@@ -610,3 +610,15 @@
       target = { x: choice.x - window.scrollX, y: choice.y - window.scrollY, w: choice };
       state = "HUNTING";
       fetchWordDefinition(choice.word);
+    } else {
+      target = {
+        x: 100 + Math.random() * (window.innerWidth - 200),
+        y: 100 + Math.random() * (window.innerHeight - 200),
+        w: null
+      };
+      state = "SCANNING";
+    }
+  };
+  pickTargetWord();
+
+  // Floating Cyber HUD Bar (Draggable, Collapsible, Clean UX)
