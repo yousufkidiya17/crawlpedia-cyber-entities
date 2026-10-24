@@ -646,3 +646,15 @@
   dragHandle.addEventListener("mousedown", (e) => {
     isDraggingHud = true;
     dragOffset.x = e.clientX - hudContainer.getBoundingClientRect().left;
+    dragOffset.y = e.clientY - hudContainer.getBoundingClientRect().top;
+    dragHandle.style.cursor = "grabbing";
+    e.preventDefault();
+  });
+  window.addEventListener("mousemove", (e) => {
+    if (!isDraggingHud) return;
+    hudContainer.style.left = `${Math.max(10, Math.min(window.innerWidth - 300, e.clientX - dragOffset.x))}px`;
+    hudContainer.style.top = `${Math.max(10, Math.min(window.innerHeight - 60, e.clientY - dragOffset.y))}px`;
+    hudContainer.style.right = "auto";
+  });
+  window.addEventListener("mouseup", () => {
+    isDraggingHud = false;
