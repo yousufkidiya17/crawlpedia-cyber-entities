@@ -790,3 +790,15 @@
     else if (e.key === "d" || e.key === "D") defBtn.click();
     else if (e.key === "r" || e.key === "R") radarBtn.click();
     else if (e.key === " ") { e.preventDefault(); pauseBtn.click(); }
+    else if (e.key === "t" || e.key === "T") {
+      // Auto Search Mission: Hunt next semantic word
+      mouseActive = false;
+      pickTargetWord();
+      playTargetLocked();
+    }
+    else if (e.key === "v" || e.key === "V") {
+      // Voice Pronunciation: Synthesize target or defined word
+      if ('speechSynthesis' in window) {
+        const wordToSpeak = (target && target.w) ? target.w.word : (currentDefinition ? currentDefinition.word : "");
+        if (wordToSpeak) {
+          window.speechSynthesis.cancel();
