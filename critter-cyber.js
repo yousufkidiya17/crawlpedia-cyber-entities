@@ -586,3 +586,15 @@
         };
       }
     }
+
+    const ox = -sin * L.side, oy = cos * L.side;
+    return { ax, ay, tx: ax + ox * reach, ty: ay + oy * reach };
+  };
+
+  spiderLegs.forEach(L => {
+    const r = getLegRest(L);
+    L.fx = r.tx;
+    L.fy = r.ty;
+  });
+
+  // Pick Next Word Target
