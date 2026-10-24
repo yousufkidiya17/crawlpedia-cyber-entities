@@ -670,3 +670,15 @@
       padding: 4px 8px; border-radius: 4px; cursor: pointer;
       font-family: inherit; font-size: 10px; font-weight: bold;
       transition: all 0.15s ease;
+    `;
+    btn.onmouseenter = () => { btn.style.borderColor = activeTheme.primary; btn.style.color = "#fff"; };
+    btn.onmouseleave = () => { btn.style.borderColor = "#30363d"; btn.style.color = "#c9d1d9"; };
+    btn.addEventListener("click", (e) => { e.stopPropagation(); onClick(); });
+    hudContainer.appendChild(btn);
+    return btn;
+  };
+
+  const pauseBtn = makeHudButton("❚❚ PAUSE", "Pause or Resume Entity (Space)", () => {
+    paused = !paused;
+    pauseBtn.textContent = paused ? "▶ RUN" : "❚❚ PAUSE";
+    pauseBtn.style.color = paused ? "#ff003c" : "#c9d1d9";
