@@ -754,3 +754,15 @@
     activeGlitches.forEach((timer) => clearInterval(timer));
     activeGlitches.clear();
 
+    document.querySelectorAll("[data-crawlpedia-glitch]").forEach(el => {
+      const orig = el.textContent;
+      el.replaceWith(document.createTextNode(orig));
+    });
+
+    canvas.remove();
+    hudContainer.remove();
+    delete window.__crawlpediaTerminate;
+  };
+  window.__crawlpediaTerminate = terminate;
+
+  // Keyboard Shortcuts
