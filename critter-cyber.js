@@ -706,3 +706,15 @@
     if (speedMultiplier === 1.0) speedMultiplier = 1.8;
     else if (speedMultiplier === 1.8) speedMultiplier = 0.6;
     else speedMultiplier = 1.0;
+    speedBtn.textContent = `${speedMultiplier}x`;
+  });
+
+  
+      const radarBtn = makeHudButton("RADAR: ON", "Toggle Set-of-Mark Interactive Targets (R)", () => {
+    radarEnabled = !radarEnabled;
+    scanInteractiveTargets();
+    radarBtn.textContent = radarEnabled ? "RADAR: ON" : "RADAR: OFF";
+    radarBtn.style.opacity = radarEnabled ? "1" : "0.5";
+  });
+
+  const defBtn = makeHudButton("DEF: ON", "Toggle AI Jargon Decryptor (D)", () => {
