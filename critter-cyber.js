@@ -766,3 +766,15 @@
   window.__crawlpediaTerminate = terminate;
 
   // Keyboard Shortcuts
+  const onKeyDown = (e) => {
+    if (e.target && e.target.closest("input,textarea,[contenteditable]")) return;
+    if (e.key === "Escape") terminate();
+        if (/^[1-9]$/.test(e.key)) {
+      const idx = parseInt(e.key, 10);
+      const matched = interactiveTargets.find(t => t.id === idx);
+      if (matched) {
+        target = {
+          x: matched.x - window.scrollX,
+          y: matched.y - window.scrollY,
+          interactive: matched,
+          w: null
