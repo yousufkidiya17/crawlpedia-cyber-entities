@@ -862,3 +862,15 @@
     if (!paused) {
       if (!target) target = { x: pos.x, y: pos.y, w: null };
 
+      let tx = target.x;
+      let ty = target.y;
+
+      let targetX = mouseActive ? mousePos.x : tx;
+      let targetY = mouseActive ? mousePos.y : ty;
+
+      const dx = targetX - pos.x;
+      const dy = targetY - pos.y;
+      const dist = Math.hypot(dx, dy);
+
+      // Pure Real-Time Movement: Reynolds Arrival Curve + Angle-Gated Pivot Steering
+      const targetAngle = dist > 4 ? Math.atan2(dy, dx) : angle;
