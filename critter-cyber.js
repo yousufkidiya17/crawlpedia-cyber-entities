@@ -802,3 +802,15 @@
         const wordToSpeak = (target && target.w) ? target.w.word : (currentDefinition ? currentDefinition.word : "");
         if (wordToSpeak) {
           window.speechSynthesis.cancel();
+          const utter = new SpeechSynthesisUtterance(wordToSpeak);
+          utter.rate = 0.92;
+          window.speechSynthesis.speak(utter);
+        }
+      }
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    initAudio();
+    onKeyDown(e);
+  };
