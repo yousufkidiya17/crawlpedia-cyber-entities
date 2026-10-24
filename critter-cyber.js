@@ -634,3 +634,15 @@
     user-select: none;
   `;
   (document.body || document.documentElement).appendChild(hudContainer);
+
+  // Drag handle
+  const dragHandle = document.createElement("span");
+  dragHandle.textContent = "⠿";
+  dragHandle.title = "Drag HUD to Move";
+  dragHandle.style.cssText = "cursor: grab; color: #8b949e; font-size: 14px; margin-right: 4px; padding: 2px;";
+  hudContainer.appendChild(dragHandle);
+
+  let isDraggingHud = false, dragOffset = { x: 0, y: 0 };
+  dragHandle.addEventListener("mousedown", (e) => {
+    isDraggingHud = true;
+    dragOffset.x = e.clientX - hudContainer.getBoundingClientRect().left;
