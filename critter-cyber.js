@@ -874,3 +874,15 @@
 
       // Pure Real-Time Movement: Reynolds Arrival Curve + Angle-Gated Pivot Steering
       const targetAngle = dist > 4 ? Math.atan2(dy, dx) : angle;
+      let angleDiff = targetAngle - angle;
+      while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+      while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+
+      // Dynamic Angular Velocity: Snappy pivot when misaligned, smooth precision tracking when aligned
+      const absAngleDiff = Math.abs(angleDiff);
+      const isMisaligned = absAngleDiff > 0.6; // > ~35 degrees
+      const turnSpeed = (currentMode === "rover" ? 6.0 : (isMisaligned ? 20.0 : 12.0)) * speedMultiplier;
+      angle += angleDiff * Math.min(1, dt * turnSpeed);
+
+      // Reynolds Proportional Arrival Curve: Smooth deceleration between 140px and 24px
+      const stopRadius = 24;
