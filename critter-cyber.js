@@ -742,3 +742,15 @@
 
   // Clean Termination Logic (Zero Residue)
   const terminate = () => {
+    if (!window.__crawlpediaCyberActive) return;
+    window.__crawlpediaCyberActive = false;
+    window.removeEventListener("resize", resizeCanvas);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("pointerdown", handlePointerDown, true);
+    window.removeEventListener("pointermove", handlePointerMove);
+    laserFilaments.length = 0;
+
+    activeGlitches.forEach((timer) => clearInterval(timer));
+    activeGlitches.clear();
+
