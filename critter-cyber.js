@@ -682,3 +682,15 @@
     paused = !paused;
     pauseBtn.textContent = paused ? "▶ RUN" : "❚❚ PAUSE";
     pauseBtn.style.color = paused ? "#ff003c" : "#c9d1d9";
+  });
+
+  const modeBtn = makeHudButton("SPIDER", "Switch Crawler Entity (M)", () => {
+    if (currentMode === "spider") currentMode = "centipede";
+    else if (currentMode === "centipede") currentMode = "rover";
+    else currentMode = "spider";
+
+    modeBtn.textContent = currentMode.toUpperCase();
+    chain.forEach((p, i) => { p.x = pos.x - i * 14; p.y = pos.y; });
+  });
+
+  const colorBtn = makeHudButton("RED", "Switch Neon Laser Palette (C)", () => {
