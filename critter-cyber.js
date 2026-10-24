@@ -658,3 +658,15 @@
   });
   window.addEventListener("mouseup", () => {
     isDraggingHud = false;
+    dragHandle.style.cursor = "grab";
+  });
+
+  const makeHudButton = (text, title, onClick) => {
+    const btn = document.createElement("button");
+    btn.textContent = text;
+    btn.title = title;
+    btn.style.cssText = `
+      background: #21262d; border: 1px solid #30363d; color: #c9d1d9;
+      padding: 4px 8px; border-radius: 4px; cursor: pointer;
+      font-family: inherit; font-size: 10px; font-weight: bold;
+      transition: all 0.15s ease;
