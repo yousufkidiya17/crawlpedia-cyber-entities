@@ -718,3 +718,15 @@
   });
 
   const defBtn = makeHudButton("DEF: ON", "Toggle AI Jargon Decryptor (D)", () => {
+    definitionsEnabled = !definitionsEnabled;
+    defBtn.textContent = definitionsEnabled ? "DEF: ON" : "DEF: OFF";
+    defBtn.style.opacity = definitionsEnabled ? "1" : "0.5";
+  });
+
+  const soundBtn = makeHudButton("SND: ON", "Toggle Cyber Audio Effects (S)", () => {
+    initAudio();
+    soundEnabled = !soundEnabled;
+    soundBtn.textContent = soundEnabled ? "SND: ON" : "SND: OFF";
+    soundBtn.style.opacity = soundEnabled ? "1" : "0.5";
+  });
+
