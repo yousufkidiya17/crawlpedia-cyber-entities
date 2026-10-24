@@ -778,3 +778,15 @@
           y: matched.y - window.scrollY,
           interactive: matched,
           w: null
+        };
+        state = "HUNTING";
+        playTargetLocked();
+      }
+    }
+
+    else if (e.key === "m" || e.key === "M") modeBtn.click();
+    else if (e.key === "c" || e.key === "C") colorBtn.click();
+    else if (e.key === "s" || e.key === "S") soundBtn.click();
+    else if (e.key === "d" || e.key === "D") defBtn.click();
+    else if (e.key === "r" || e.key === "R") radarBtn.click();
+    else if (e.key === " ") { e.preventDefault(); pauseBtn.click(); }
