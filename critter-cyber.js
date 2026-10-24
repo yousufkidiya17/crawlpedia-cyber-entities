@@ -850,3 +850,15 @@
   // Main 60 FPS Cybernetic Animation Loop
   let lastTime = performance.now();
   let telemetryFrame = 0;
+
+  const loop = (now) => {
+    if (!window.__crawlpediaCyberActive) return;
+    requestAnimationFrame(loop);
+
+    const dt = Math.min(0.1, (now - lastTime) / 1000);
+    lastTime = now;
+    telemetryFrame++;
+
+    if (!paused) {
+      if (!target) target = { x: pos.x, y: pos.y, w: null };
+
