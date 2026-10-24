@@ -838,3 +838,15 @@
     let dx = fx - ax, dy = fy - ay;
     let dist = Math.hypot(dx, dy) || 1;
     dist = Math.min(dist, l1 + l2 - 0.5);
+    const angleA = Math.acos(Math.max(-1, Math.min(1, (l1 * l1 + dist * dist - l2 * l2) / (2 * l1 * dist))));
+    const baseAngle = Math.atan2(dy, dx);
+    const kneeAngle = baseAngle + angleA * bendSide;
+    return {
+      x: ax + Math.cos(kneeAngle) * l1,
+      y: ay + Math.sin(kneeAngle) * l1
+    };
+  };
+
+  // Main 60 FPS Cybernetic Animation Loop
+  let lastTime = performance.now();
+  let telemetryFrame = 0;
