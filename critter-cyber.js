@@ -814,3 +814,15 @@
     initAudio();
     onKeyDown(e);
   };
+  window.addEventListener("keydown", handleKeyDown);
+
+  // User Interactive Click & Mouse Handling
+  const handlePointerMove = (e) => {
+    mouseActive = true;
+    mousePos.x = e.clientX;
+    mousePos.y = e.clientY;
+  };
+  window.addEventListener("pointermove", handlePointerMove, { passive: true });
+
+  const handlePointerDown = (e) => {
+    initAudio();
