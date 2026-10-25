@@ -1006,3 +1006,15 @@
       });
     }
 
+    // ==========================================
+    // RENDER PASS (100% Cybernetic Wireframe Canvas)
+    // ==========================================
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    // Apply Tactile Vibration Screen-Shake
+    let shakeX = 0, shakeY = 0;
+    if (screenShake > 0.05) {
+      shakeX = (Math.random() - 0.5) * screenShake;
+      shakeY = (Math.random() - 0.5) * screenShake;
+      screenShake = Math.max(0, screenShake - dt * 12);
+    }
