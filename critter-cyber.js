@@ -934,3 +934,15 @@
 
 
       // Centipede Chain Physics
+      chain[0].x = pos.x;
+      chain[0].y = pos.y;
+      chain[0].angle = angle;
+      for (let i = 1; i < chain.length; i++) {
+        const cur = chain[i], prev = chain[i - 1];
+        const cdx = prev.x - cur.x, cdy = prev.y - cur.y;
+        const cd = Math.hypot(cdx, cdy) || 1;
+        cur.x = prev.x - (cdx / cd) * 14;
+        cur.y = prev.y - (cdy / cd) * 14;
+        cur.angle = Math.atan2(cdy, cdx);
+      }
+
