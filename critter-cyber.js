@@ -1018,3 +1018,15 @@
       shakeY = (Math.random() - 0.5) * screenShake;
       screenShake = Math.max(0, screenShake - dt * 12);
     }
+    ctx.save();
+    ctx.translate(shakeX, shakeY);
+
+
+    // ==========================================
+    // FOOTSTEP ELECTRIC SPARKS & SHOCKWAVE RINGS
+    // ==========================================
+    // Update & Render Footstep Ripples
+    for (let i = footstepRipples.length - 1; i >= 0; i--) {
+      const rip = footstepRipples[i];
+      rip.r += dt * 65;
+      rip.alpha = Math.max(0, 1 - (rip.r / rip.maxR));
