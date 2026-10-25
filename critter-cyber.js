@@ -946,3 +946,15 @@
         cur.angle = Math.atan2(cdy, cdx);
       }
 
+      // Spider IK Stepping: Dynamic pivot cadence + adaptive step threshold
+      const isTurning = absAngleDiff > 0.15;
+      for (const L of spiderLegs) {
+        const r = getLegRest(L);
+        const ldx = r.tx - L.fx, ldy = r.ty - L.fy;
+        const legDist = Math.hypot(ldx, ldy);
+
+        // Turn-induced cadence: pivot rotations trigger fluid leg stepping even at low forward speed
+        const stepCadence = speed > 20 ? 18 : (isTurning ? 12.0 : 4.0);
+        L.phase += dt * stepCadence * speedMultiplier;
+
+        // Active Word Clamping: Front claws lock directly onto target word
