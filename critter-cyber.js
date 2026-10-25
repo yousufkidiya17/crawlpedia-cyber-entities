@@ -994,3 +994,15 @@
         playRadarPing();
       }
       for (let i = radarWaves.length - 1; i >= 0; i--) {
+        const rw = radarWaves[i];
+        rw.r += dt * 260;
+        rw.alpha = Math.max(0, 1 - (rw.r / rw.maxR));
+        if (rw.alpha <= 0) radarWaves.splice(i, 1);
+      }
+
+      // Advance Traveling Laser Data Packets
+      laserFilaments.forEach(lf => {
+        lf.packets = lf.packets.map(p => (p + dt * 0.9) % 1);
+      });
+    }
+
