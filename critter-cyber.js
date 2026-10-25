@@ -922,3 +922,15 @@
         if (dAnchor > 120) {
           lastFilamentAnchor = { x: pos.x, y: pos.y };
           laserFilaments.push({
+            docX: pos.x + window.scrollX,
+            docY: pos.y + window.scrollY,
+            born: now,
+            packets: [0, 0.35, 0.7]
+          });
+          if (laserFilaments.length > 8) laserFilaments.shift();
+        }
+      }
+
+
+
+      // Centipede Chain Physics
