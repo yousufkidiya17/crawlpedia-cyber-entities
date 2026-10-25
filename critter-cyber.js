@@ -982,3 +982,15 @@
           if (L.lift <= 0 && L.wasLifting) {
             L.wasLifting = false;
             triggerFootstepContact(L.fx, L.fy);
+          }
+        }
+      }
+
+
+
+      // Radar Sonar Waves
+      if (telemetryFrame % 80 === 0) {
+        radarWaves.push({ x: pos.x, y: pos.y, r: 10, maxR: 260, alpha: 0.9 });
+        playRadarPing();
+      }
+      for (let i = radarWaves.length - 1; i >= 0; i--) {
