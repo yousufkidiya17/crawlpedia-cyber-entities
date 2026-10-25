@@ -898,3 +898,15 @@
       } else {
         desiredSpeed = 0;
       }
+
+      // Smooth acceleration / deceleration
+      const accelRate = (desiredSpeed > speed ? 700 : 900) * speedMultiplier;
+      if (speed < desiredSpeed) {
+        speed = Math.min(desiredSpeed, speed + dt * accelRate);
+      } else {
+        speed = Math.max(desiredSpeed, speed - dt * accelRate);
+      }
+
+      // Continuous positional integration (No hard wall freezes)
+      if (speed > 1) {
+        pos.x += Math.cos(angle) * speed * dt;
