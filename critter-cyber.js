@@ -910,3 +910,15 @@
       // Continuous positional integration (No hard wall freezes)
       if (speed > 1) {
         pos.x += Math.cos(angle) * speed * dt;
+        pos.y += Math.sin(angle) * speed * dt;
+
+        if (speed > 30 && now - lastStepSoundTime > (140 / speedMultiplier)) {
+          lastStepSoundTime = now;
+          playLegClick();
+        }
+
+        // Anchor Surface Laser Silk Filaments as Spider Crawls
+        const dAnchor = Math.hypot(pos.x - lastFilamentAnchor.x, pos.y - lastFilamentAnchor.y);
+        if (dAnchor > 120) {
+          lastFilamentAnchor = { x: pos.x, y: pos.y };
+          laserFilaments.push({
