@@ -970,3 +970,15 @@
         if ((legDist > stepThreshold && L.lift <= 0) ||
             ((speed > 30 || (isTurning && legDist > 14)) && Math.sin(L.phase + L.row * 1.5 + (L.side > 0 ? 0 : Math.PI)) > 0.90 && L.lift <= 0)) {
           L.lift = 1;
+        }
+
+        if (L.lift > 0) {
+          L.wasLifting = true;
+          L.lift = Math.max(0, L.lift - dt * 11.0 * speedMultiplier);
+          L.fx += ldx * dt * 24 * speedMultiplier;
+          L.fy += ldy * dt * 24 * speedMultiplier;
+
+          // Touchdown event: leg just completed step onto ground/word
+          if (L.lift <= 0 && L.wasLifting) {
+            L.wasLifting = false;
+            triggerFootstepContact(L.fx, L.fy);
