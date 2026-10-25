@@ -958,3 +958,15 @@
         L.phase += dt * stepCadence * speedMultiplier;
 
         // Active Word Clamping: Front claws lock directly onto target word
+        if (state === "DECRYPTING" && (L.row === 0 || L.row === 1)) {
+          L.fx += ldx * dt * 28 * speedMultiplier;
+          L.fy += ldy * dt * 28 * speedMultiplier;
+          L.lift = 0;
+          continue;
+        }
+
+        // Adaptive step threshold: lower threshold (20px) during pivots prevents foot dragging
+        const stepThreshold = speed > 160 ? 50 : (speed > 40 ? 32 : (isTurning ? 20 : 26));
+        if ((legDist > stepThreshold && L.lift <= 0) ||
+            ((speed > 30 || (isTurning && legDist > 14)) && Math.sin(L.phase + L.row * 1.5 + (L.side > 0 ? 0 : Math.PI)) > 0.90 && L.lift <= 0)) {
+          L.lift = 1;
