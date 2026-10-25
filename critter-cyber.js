@@ -886,3 +886,15 @@
 
       // Reynolds Proportional Arrival Curve: Smooth deceleration between 140px and 24px
       const stopRadius = 24;
+      const slowRadius = 140;
+      let desiredSpeed = 0;
+
+      if (dist > stopRadius) {
+        const ramp = Math.min(1, (dist - stopRadius) / (slowRadius - stopRadius));
+        const topSpeed = (dist > 300 ? 460 : 380) * speedMultiplier;
+        // Angle-Gating Throttle: Reduce forward surge during sharp pivots to eliminate wide drifts
+        const alignmentThrottle = Math.max(0.18, Math.cos(angleDiff));
+        desiredSpeed = topSpeed * ramp * (isMisaligned ? alignmentThrottle : 1.0);
+      } else {
+        desiredSpeed = 0;
+      }
