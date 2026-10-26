@@ -1138,3 +1138,15 @@
       });
       ctx.shadowBlur = 0;
     }
+
+    // B. Word Targeting Reticles & Corner HUD Brackets [ 01 // LOCKED ]
+    const visibleWords = harvestedWords.map(w => ({
+      w,
+      vx: w.x - window.scrollX,
+      vy: w.y - window.scrollY
+    })).filter(item => item.vx > -40 && item.vx < window.innerWidth + 40 && item.vy > -40 && item.vy < window.innerHeight + 40);
+
+    // Word Brackets Disabled (Clean Page View - Zero Distractions)
+    ctx.shadowBlur = 0;
+
+    // ==========================================
