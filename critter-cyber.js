@@ -1162,3 +1162,15 @@
       const lineAlpha = (1 - age) * 0.75;
 
       const lfScreenX = lf.docX - window.scrollX;
+      const lfScreenY = lf.docY - window.scrollY;
+
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.shadowColor = activeTheme.glow;
+      ctx.shadowBlur = 6;
+      ctx.globalAlpha = lineAlpha;
+      ctx.lineWidth = 1.0;
+
+      const midX = (pos.x + lfScreenX) * 0.5;
+      const midY = (pos.y + lfScreenY) * 0.5 - 18;
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
