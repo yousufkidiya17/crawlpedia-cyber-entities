@@ -1222,3 +1222,15 @@
     ctx.lineTo(forwardLeftTarget.x, forwardLeftTarget.y);
     ctx.stroke();
 
+    const gradRight = ctx.createLinearGradient(frontRightClaw.x, frontRightClaw.y, forwardRightTarget.x, forwardRightTarget.y);
+    gradRight.addColorStop(0, activeTheme.primary);
+    gradRight.addColorStop(1, "rgba(255, 255, 255, 0.05)");
+    ctx.strokeStyle = gradRight;
+    ctx.beginPath();
+    ctx.moveTo(frontRightClaw.x, frontRightClaw.y);
+    ctx.lineTo(forwardRightTarget.x, forwardRightTarget.y);
+    ctx.stroke();
+    ctx.restore();
+
+    // D. Render Creature Chassis
+    ctx.save();
