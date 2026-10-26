@@ -1102,3 +1102,15 @@
         const bx = sx - t.w * 0.5 - 3;
         const by = sy - t.h * 0.5 - 2;
         const bw = t.w + 6;
+        const bh = t.h + 4;
+        const corner = Math.min(6, Math.min(bw, bh) * 0.4);
+
+        const isAimTarget = target && target.interactive && target.interactive.id === t.id;
+        const color = isAimTarget ? "#00ff66" : (t.type === "INPUT" ? "#00f0ff" : activeTheme.primary);
+
+        ctx.strokeStyle = color;
+        ctx.lineWidth = isAimTarget ? 1.8 : 1.2;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = isAimTarget ? 10 : 4;
+
+        // Draw 4 corner HUD brackets: ┌ ┐ └ ┘
