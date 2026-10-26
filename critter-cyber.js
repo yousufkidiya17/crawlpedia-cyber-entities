@@ -1066,3 +1066,15 @@
       ctx.globalAlpha = alpha;
       ctx.beginPath();
       ctx.arc(sp.x, sp.y, 1.6 * alpha, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+
+    // A. Sonar Radar Waves
+    radarWaves.forEach(rw => {
+      ctx.strokeStyle = activeTheme.glow;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = rw.alpha * 0.45;
+      ctx.beginPath();
+      ctx.arc(rw.x, rw.y, rw.r, 0, Math.PI * 2);
