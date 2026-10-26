@@ -1126,3 +1126,15 @@
         ctx.font = "bold 9px ui-monospace, SFMono-Regular, monospace";
         const badgeW = ctx.measureText(badgeText).width + 8;
         const badgeH = 14;
+        const badgeX = bx;
+        const badgeY = by - badgeH - 2;
+
+        ctx.fillStyle = "rgba(7, 10, 15, 0.92)";
+        ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
+        ctx.strokeRect(badgeX, badgeY, badgeW, badgeH);
+
+        ctx.fillStyle = isAimTarget ? "#00ff66" : "#ffffff";
+        ctx.fillText(badgeText, badgeX + 4, badgeY + 10);
+      });
+      ctx.shadowBlur = 0;
+    }
