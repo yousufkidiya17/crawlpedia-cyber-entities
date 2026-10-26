@@ -1054,3 +1054,15 @@
     ctx.shadowBlur = 6;
     for (let i = footstepSparks.length - 1; i >= 0; i--) {
       const sp = footstepSparks[i];
+      sp.x += sp.vx * dt;
+      sp.y += sp.vy * dt;
+      sp.life -= dt;
+      if (sp.life <= 0) {
+        footstepSparks.splice(i, 1);
+        continue;
+      }
+      const alpha = sp.life / sp.maxLife;
+      ctx.fillStyle = sp.color;
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.arc(sp.x, sp.y, 1.6 * alpha, 0, Math.PI * 2);
