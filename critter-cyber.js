@@ -1078,3 +1078,15 @@
       ctx.globalAlpha = rw.alpha * 0.45;
       ctx.beginPath();
       ctx.arc(rw.x, rw.y, rw.r, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(rw.x - rw.r, rw.y); ctx.lineTo(rw.x - rw.r - 8, rw.y);
+      ctx.moveTo(rw.x + rw.r, rw.y); ctx.lineTo(rw.x + rw.r + 8, rw.y);
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+
+
+    // ==========================================
+    // SET-OF-MARK INTERACTIVE TARGET RETICLES [ 01 ], [ 02 ]
