@@ -1258,3 +1258,15 @@
           // Inward catenary curve towards body center
           const mx = (f0.x + f1.x) * 0.5;
           const my = (f0.y + f1.y) * 0.5;
+          const toBodyX = pos.x - mx;
+          const toBodyY = pos.y - my;
+          const toBodyDist = Math.hypot(toBodyX, toBodyY) || 1;
+          const sag = 8;
+          const cx = mx + (toBodyX / toBodyDist) * sag;
+          const cy = my + (toBodyY / toBodyDist) * sag;
+
+          // Render Curved Laser Filament
+          ctx.globalAlpha = 0.65;
+          ctx.beginPath();
+          ctx.moveTo(f0.x, f0.y);
+          ctx.quadraticCurveTo(cx, cy, f1.x, f1.y);
