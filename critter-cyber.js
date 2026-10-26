@@ -1114,3 +1114,15 @@
         ctx.shadowBlur = isAimTarget ? 10 : 4;
 
         // Draw 4 corner HUD brackets: ┌ ┐ └ ┘
+        ctx.beginPath();
+        ctx.moveTo(bx, by + corner); ctx.lineTo(bx, by); ctx.lineTo(bx + corner, by);
+        ctx.moveTo(bx + bw - corner, by); ctx.lineTo(bx + bw, by); ctx.lineTo(bx + bw, by + corner);
+        ctx.moveTo(bx, by + bh - corner); ctx.lineTo(bx, by + bh); ctx.lineTo(bx + corner, by + bh);
+        ctx.moveTo(bx + bw - corner, by + bh); ctx.lineTo(bx + bw, by + bh); ctx.lineTo(bx + bw, by + bh - corner);
+        ctx.stroke();
+
+        // High-Tech Numbered Badge Tab [ 01 // TYPE ]
+        const badgeText = `[ ${t.badge} // ${t.type}: ${t.label} ]`;
+        ctx.font = "bold 9px ui-monospace, SFMono-Regular, monospace";
+        const badgeW = ctx.measureText(badgeText).width + 8;
+        const badgeH = 14;
