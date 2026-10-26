@@ -1198,3 +1198,15 @@
     const reachDist = 85;
     const frontLeftClaw = (spiderLegs[0] && spiderLegs[0].fx) ? { x: spiderLegs[0].fx, y: spiderLegs[0].fy } : { x: pos.x + cosA * 22 - nx * 14, y: pos.y + sinA * 22 - ny * 14 };
     const frontRightClaw = (spiderLegs[4] && spiderLegs[4].fx) ? { x: spiderLegs[4].fx, y: spiderLegs[4].fy } : { x: pos.x + cosA * 22 + nx * 14, y: pos.y + sinA * 22 + ny * 14 };
+
+    const forwardLeftTarget = {
+      x: frontLeftClaw.x + cosA * reachDist - nx * 18,
+      y: frontLeftClaw.y + sinA * reachDist - ny * 18
+    };
+    const forwardRightTarget = {
+      x: frontRightClaw.x + cosA * reachDist + nx * 18,
+      y: frontRightClaw.y + sinA * reachDist + ny * 18
+    };
+
+    ctx.save();
+    ctx.lineWidth = 0.85;
