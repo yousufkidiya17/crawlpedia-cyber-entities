@@ -1090,3 +1090,15 @@
 
     // ==========================================
     // SET-OF-MARK INTERACTIVE TARGET RETICLES [ 01 ], [ 02 ]
+    // ==========================================
+    if (radarEnabled && interactiveTargets.length > 0) {
+      interactiveTargets.forEach(t => {
+        const sx = t.x - window.scrollX;
+        const sy = t.y - window.scrollY;
+
+        // Check if inside current viewport
+        if (sx < -40 || sx > window.innerWidth + 40 || sy < -40 || sy > window.innerHeight + 40) return;
+
+        const bx = sx - t.w * 0.5 - 3;
+        const by = sy - t.h * 0.5 - 2;
+        const bw = t.w + 6;
