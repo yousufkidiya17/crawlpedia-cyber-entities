@@ -1186,3 +1186,15 @@
         ctx.beginPath();
         ctx.arc(qx, qy, 2.2, 0, Math.PI * 2);
         ctx.fill();
+      });
+    });
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+    ctx.restore();
+
+    // ==========================================
+    // 2. TWO FRONT SENSORY GUIDE LINES (Aage Ki 2 Barik Guide Lines - Zero Dots, Zero Joints)
+    // ==========================================
+    const reachDist = 85;
+    const frontLeftClaw = (spiderLegs[0] && spiderLegs[0].fx) ? { x: spiderLegs[0].fx, y: spiderLegs[0].fy } : { x: pos.x + cosA * 22 - nx * 14, y: pos.y + sinA * 22 - ny * 14 };
+    const frontRightClaw = (spiderLegs[4] && spiderLegs[4].fx) ? { x: spiderLegs[4].fx, y: spiderLegs[4].fy } : { x: pos.x + cosA * 22 + nx * 14, y: pos.y + sinA * 22 + ny * 14 };
