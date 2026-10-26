@@ -1174,3 +1174,15 @@
       const midY = (pos.y + lfScreenY) * 0.5 - 18;
       ctx.beginPath();
       ctx.moveTo(pos.x, pos.y);
+      ctx.quadraticCurveTo(midX, midY, lfScreenX, lfScreenY);
+      ctx.stroke();
+
+      lf.packets.forEach(t => {
+        const qx = (1 - t) * (1 - t) * pos.x + 2 * (1 - t) * t * midX + t * t * lfScreenX;
+        const qy = (1 - t) * (1 - t) * pos.y + 2 * (1 - t) * t * midY + t * t * lfScreenY;
+        ctx.fillStyle = "#ffffff";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(qx, qy, 2.2, 0, Math.PI * 2);
+        ctx.fill();
