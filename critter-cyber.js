@@ -1246,3 +1246,15 @@
       ctx.lineWidth = 0.9;
 
       for (const side of [-1, 1]) {
+        const sideLegs = spiderLegs.filter(L => L.side === side);
+        for (let i = 0; i < sideLegs.length - 1; i++) {
+          const L0 = sideLegs[i];
+          const L1 = sideLegs[i + 1];
+          const lift0 = Math.sin(L0.lift * Math.PI) * 16;
+          const lift1 = Math.sin(L1.lift * Math.PI) * 16;
+          const f0 = { x: L0.fx, y: L0.fy - lift0 };
+          const f1 = { x: L1.fx, y: L1.fy - lift1 };
+
+          // Inward catenary curve towards body center
+          const mx = (f0.x + f1.x) * 0.5;
+          const my = (f0.y + f1.y) * 0.5;
