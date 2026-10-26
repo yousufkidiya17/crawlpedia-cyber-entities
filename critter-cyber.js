@@ -1210,3 +1210,15 @@
 
     ctx.save();
     ctx.lineWidth = 0.85;
+    ctx.shadowBlur = 4;
+
+    const gradLeft = ctx.createLinearGradient(frontLeftClaw.x, frontLeftClaw.y, forwardLeftTarget.x, forwardLeftTarget.y);
+    gradLeft.addColorStop(0, activeTheme.primary);
+    gradLeft.addColorStop(1, "rgba(255, 255, 255, 0.05)");
+    ctx.strokeStyle = gradLeft;
+    ctx.globalAlpha = 0.85;
+    ctx.beginPath();
+    ctx.moveTo(frontLeftClaw.x, frontLeftClaw.y);
+    ctx.lineTo(forwardLeftTarget.x, forwardLeftTarget.y);
+    ctx.stroke();
+
