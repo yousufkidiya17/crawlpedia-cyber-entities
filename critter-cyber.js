@@ -1042,3 +1042,15 @@
       ctx.stroke();
 
       // Mini crosshair tick on contact
+      ctx.beginPath();
+      ctx.moveTo(rip.x - 3, rip.y); ctx.lineTo(rip.x + 3, rip.y);
+      ctx.moveTo(rip.x, rip.y - 3); ctx.lineTo(rip.x, rip.y + 3);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // Update & Render Footstep Electric Sparks
+    ctx.shadowColor = activeTheme.glow;
+    ctx.shadowBlur = 6;
+    for (let i = footstepSparks.length - 1; i >= 0; i--) {
+      const sp = footstepSparks[i];
