@@ -1150,3 +1150,15 @@
     ctx.shadowBlur = 0;
 
     // ==========================================
+    // 1. SURFACE LASER SILK FILAMENTS WITH TRAVELING DATA PACKETS
+    // ==========================================
+    const cosA = Math.cos(angle), sinA = Math.sin(angle);
+    const nx = -sinA, ny = cosA;
+
+    ctx.save();
+    laserFilaments.forEach(lf => {
+      const age = (now - lf.born) / 7000;
+      if (age >= 1) return;
+      const lineAlpha = (1 - age) * 0.75;
+
+      const lfScreenX = lf.docX - window.scrollX;
