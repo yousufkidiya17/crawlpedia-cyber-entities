@@ -1234,3 +1234,15 @@
 
     // D. Render Creature Chassis
     ctx.save();
+    ctx.shadowColor = activeTheme.glow;
+    ctx.shadowBlur = 10;
+
+    if (currentMode === "spider") {
+      // Inter-Leg Fiber-Optic Laser Filaments with Traveling Data Packets (Option 1)
+      ctx.save();
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.shadowColor = activeTheme.glow;
+      ctx.shadowBlur = 5;
+      ctx.lineWidth = 0.9;
+
+      for (const side of [-1, 1]) {
