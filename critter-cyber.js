@@ -1030,3 +1030,15 @@
       const rip = footstepRipples[i];
       rip.r += dt * 65;
       rip.alpha = Math.max(0, 1 - (rip.r / rip.maxR));
+      if (rip.alpha <= 0) {
+        footstepRipples.splice(i, 1);
+        continue;
+      }
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.lineWidth = 1.2;
+      ctx.globalAlpha = rip.alpha * 0.75;
+      ctx.beginPath();
+      ctx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Mini crosshair tick on contact
