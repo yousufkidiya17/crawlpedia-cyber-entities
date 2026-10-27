@@ -1270,3 +1270,15 @@
           ctx.beginPath();
           ctx.moveTo(f0.x, f0.y);
           ctx.quadraticCurveTo(cx, cy, f1.x, f1.y);
+          ctx.stroke();
+
+          // Traveling Glowing Data Packets along the inter-leg arc
+          const t1 = ((now * 0.0012) + (i * 0.33) + (side === 1 ? 0.5 : 0)) % 1;
+          const t2 = (t1 + 0.5) % 1;
+
+          [t1, t2].forEach(t => {
+            const qx = (1 - t) * (1 - t) * f0.x + 2 * (1 - t) * t * cx + t * t * f1.x;
+            const qy = (1 - t) * (1 - t) * f0.y + 2 * (1 - t) * t * cy + t * t * f1.y;
+            ctx.fillStyle = "#ffffff";
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = "#ffffff";
