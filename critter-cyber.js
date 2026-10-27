@@ -1366,3 +1366,15 @@
       ctx.beginPath(); ctx.arc(12, 4, 2.5, 0, Math.PI * 2); ctx.fill();
       ctx.fillStyle = activeTheme.primary;
       ctx.beginPath(); ctx.arc(6, -8, 1.8, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(6, 8, 1.8, 0, Math.PI * 2); ctx.fill();
+
+      // Telemetry Ring
+      ctx.strokeStyle = activeTheme.dim;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(0, 0, 36, telemetryFrame * 0.02, telemetryFrame * 0.02 + Math.PI * 1.5);
+      ctx.stroke();
+
+      // Chelicerae - actively snap and clamp when harvesting word
+      const clampAng = (state === "DECRYPTING") ? Math.sin(telemetryFrame * 0.45) * 4 : 0;
+      ctx.strokeStyle = activeTheme.primary;
