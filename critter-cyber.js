@@ -1282,3 +1282,15 @@
             ctx.fillStyle = "#ffffff";
             ctx.shadowBlur = 8;
             ctx.shadowColor = "#ffffff";
+            ctx.globalAlpha = 0.9;
+            ctx.beginPath();
+            ctx.arc(qx, qy, 1.8, 0, Math.PI * 2);
+            ctx.fill();
+          });
+        }
+      }
+      ctx.restore();
+
+      // SPIDER: 8 Articulated Wireframe Legs
+      for (const L of spiderLegs) {
+        const r = getLegRest(L);
