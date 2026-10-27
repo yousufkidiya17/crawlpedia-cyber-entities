@@ -1342,3 +1342,15 @@
       ctx.beginPath();
       ctx.moveTo(-50, 0); ctx.lineTo(-20, 0);
       ctx.moveTo(-35, -12); ctx.lineTo(-35, 12);
+      ctx.stroke();
+
+      // Cephalothorax (Head) Polygon
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.fillStyle = "#05070a";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(18, 0);
+      ctx.lineTo(6, -14);
+      ctx.lineTo(-12, -10);
+      ctx.lineTo(-12, 10);
+      ctx.lineTo(6, 14);
