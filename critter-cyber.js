@@ -1294,3 +1294,15 @@
       // SPIDER: 8 Articulated Wireframe Legs
       for (const L of spiderLegs) {
         const r = getLegRest(L);
+        const lift = Math.sin(L.lift * Math.PI) * 16;
+        const fx = L.fx, fy = L.fy - lift;
+        const knee = solveIKKnee(r.ax, r.ay, fx, fy, 75, 95, L.side);
+
+        ctx.strokeStyle = activeTheme.primary;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(r.ax, r.ay);
+        ctx.lineTo(knee.x, knee.y);
+        ctx.lineTo(fx, fy);
+        ctx.stroke();
+
