@@ -1330,3 +1330,15 @@
       ctx.beginPath();
       ctx.moveTo(-16, -12);
       ctx.lineTo(-44, -18);
+      ctx.lineTo(-58, 0);
+      ctx.lineTo(-44, 18);
+      ctx.lineTo(-16, 12);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.strokeStyle = activeTheme.dim;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(-50, 0); ctx.lineTo(-20, 0);
+      ctx.moveTo(-35, -12); ctx.lineTo(-35, 12);
