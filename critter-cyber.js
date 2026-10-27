@@ -1306,3 +1306,15 @@
         ctx.lineTo(fx, fy);
         ctx.stroke();
 
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath(); ctx.arc(knee.x, knee.y, 2, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = activeTheme.primary;
+        ctx.beginPath(); ctx.arc(fx, fy, (state === "DECRYPTING" && (L.row === 0 || L.row === 1)) ? 4.5 : 3, 0, Math.PI * 2); ctx.fill();
+
+        if (state === "DECRYPTING" && L.row === 0) {
+          ctx.strokeStyle = "#ffffff";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.arc(fx, fy, 6, 0, Math.PI * 2);
+          ctx.stroke();
+        }
