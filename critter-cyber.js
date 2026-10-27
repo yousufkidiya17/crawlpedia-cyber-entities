@@ -1378,3 +1378,15 @@
       // Chelicerae - actively snap and clamp when harvesting word
       const clampAng = (state === "DECRYPTING") ? Math.sin(telemetryFrame * 0.45) * 4 : 0;
       ctx.strokeStyle = activeTheme.primary;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(16, -5 + clampAng); ctx.lineTo(28, -2 + clampAng * 1.5);
+      ctx.moveTo(16, 5 - clampAng); ctx.lineTo(28, 2 - clampAng * 1.5);
+      ctx.stroke();
+
+    } else if (currentMode === "centipede") {
+      // CENTIPEDE: Undulating Spine & Synchronized Wave Legs
+      for (let i = chain.length - 1; i >= 0; i--) {
+        const seg = chain[i];
+        const segW = Math.max(8, 20 - i * 0.45);
+        const segH = Math.max(6, 14 - i * 0.3);
