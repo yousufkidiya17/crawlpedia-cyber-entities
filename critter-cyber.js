@@ -1354,3 +1354,15 @@
       ctx.lineTo(-12, -10);
       ctx.lineTo(-12, 10);
       ctx.lineTo(6, 14);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Multi-Tier Optics
+      ctx.fillStyle = "#ffffff";
+      ctx.shadowColor = "#ffffff";
+      ctx.shadowBlur = 12;
+      ctx.beginPath(); ctx.arc(12, -4, 2.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(12, 4, 2.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = activeTheme.primary;
+      ctx.beginPath(); ctx.arc(6, -8, 1.8, 0, Math.PI * 2); ctx.fill();
