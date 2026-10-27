@@ -1318,3 +1318,15 @@
           ctx.arc(fx, fy, 6, 0, Math.PI * 2);
           ctx.stroke();
         }
+      }
+
+      ctx.translate(pos.x, pos.y);
+      ctx.rotate(angle);
+
+      // Abdomen Polygon Armor
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.fillStyle = "rgba(10, 10, 15, 0.9)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-16, -12);
+      ctx.lineTo(-44, -18);
