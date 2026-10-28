@@ -1498,3 +1498,15 @@
 
       // Holographic Card Backdrop (Dark glassmorphism)
       ctx.fillStyle = "rgba(7, 10, 15, 0.96)";
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.shadowColor = activeTheme.glow;
+      ctx.shadowBlur = 12;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(cardX, cardY, cardW, cardH, 6);
+      } else {
+        ctx.rect(cardX, cardY, cardW, cardH);
+      }
+      ctx.fill();
+      ctx.stroke();
