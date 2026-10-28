@@ -1390,3 +1390,15 @@
         const seg = chain[i];
         const segW = Math.max(8, 20 - i * 0.45);
         const segH = Math.max(6, 14 - i * 0.3);
+
+        ctx.save();
+        ctx.translate(seg.x, seg.y);
+        ctx.rotate(seg.angle);
+
+        const legWave = Math.sin(now * 0.012 - i * 0.75);
+        for (const side of [-1, 1]) {
+          const legLen = 22 + Math.sin(i * 0.5) * 6;
+          const lx = (side * segW * 0.5);
+          const footX = lx + side * legLen * 0.7 + legWave * 6;
+          const footY = side * legLen * 0.9 - legWave * 8;
+
