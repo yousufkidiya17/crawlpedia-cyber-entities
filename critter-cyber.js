@@ -1474,3 +1474,15 @@
 
     ctx.restore();
 
+        // F. Holographic AI Jargon Decryptor Card (Projects definition when clamped)
+    const dTarget = target ? Math.hypot(target.x - pos.x, target.y - pos.y) : 999;
+    if (definitionsEnabled && currentDefinition && (state === "DECRYPTING" || dTarget < 55)) {
+      const cardW = 300;
+      const cardH = 88;
+      const anchorX = (target && target.w) ? (target.w.x - window.scrollX) : pos.x;
+      const anchorY = (target && target.w) ? (target.w.y - window.scrollY) : pos.y;
+
+      let cardX = anchorX - cardW * 0.5;
+      cardX = Math.max(16, Math.min(window.innerWidth - cardW - 16, cardX));
+      const cardY = Math.max(70, anchorY - cardH - 36);
+
