@@ -1510,3 +1510,15 @@
       }
       ctx.fill();
       ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Header Tag
+      ctx.fillStyle = activeTheme.primary;
+      ctx.font = "bold 9px ui-monospace, SFMono-Regular, monospace";
+      ctx.fillText(`[ AI LEXICON // ${currentDefinition.pos || "NOUN"} ]`, cardX + 12, cardY + 16);
+
+      // Target Word Header
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 13px ui-monospace, SFMono-Regular, monospace";
+      const phoneticText = currentDefinition.phonetic ? ` ${currentDefinition.phonetic}` : "";
+      ctx.fillText(`${currentDefinition.word.toUpperCase()}${phoneticText}`, cardX + 12, cardY + 33);
