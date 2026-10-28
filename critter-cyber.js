@@ -1558,3 +1558,13 @@
 
     ctx.fillStyle = activeTheme.primary;
     ctx.font = "10px ui-monospace, SFMono-Regular, monospace";
+    ctx.fillText(`ENTITIES: 1,111 // STATE: ${state}`, hudX + 10, hudY + 18);
+    ctx.fillStyle = "#8b949e";
+    ctx.fillText(`COORDS: [${Math.round(pos.x)}, ${Math.round(pos.y)}] SPD: ${Math.round(speed)}`, hudX + 10, hudY + 34);
+    const defPreview = currentDefinition && currentDefinition.status === "ready" ? ` [${currentDefinition.pos}] ${currentDefinition.text.slice(0, 22)}...` : "";
+    ctx.fillText(`TARGET: CURSOR FOLLOW // ACTIVE`, hudX + 10, hudY + 50);
+    ctx.restore();
+  };
+
+  requestAnimationFrame(loop);
+})();
