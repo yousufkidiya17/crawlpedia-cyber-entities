@@ -1462,3 +1462,15 @@
       ctx.fill();
       ctx.stroke();
 
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(0, 0, 8, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, 0); ctx.lineTo(16, 0);
+      ctx.stroke();
+    }
+
+    ctx.restore();
+
