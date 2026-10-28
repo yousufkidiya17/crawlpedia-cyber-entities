@@ -1534,3 +1534,15 @@
 
       for (let i = 0; i < words.length && lineCount < 2; i++) {
         const testLine = line + (line ? " " : "") + words[i];
+        if (ctx.measureText(testLine).width > maxTextWidth) {
+          ctx.fillText(line, cardX + 12, lineY);
+          line = words[i];
+          lineY += 14;
+          lineCount++;
+        } else {
+          line = testLine;
+        }
+      }
+      if (line && lineCount < 2) {
+        ctx.fillText(line + (words.length > 20 ? "..." : ""), cardX + 12, lineY);
+      }
