@@ -1450,3 +1450,15 @@
       ctx.fillStyle = fanGrad;
       ctx.beginPath();
       ctx.moveTo(15, 0);
+      ctx.arc(0, 0, 180, fanAngle - 0.4, fanAngle + 0.4);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "#05070a";
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(-24, -18, 48, 36, 4);
+      ctx.fill();
+      ctx.stroke();
+
