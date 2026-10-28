@@ -1546,3 +1546,15 @@
       if (line && lineCount < 2) {
         ctx.fillText(line + (words.length > 20 ? "..." : ""), cardX + 12, lineY);
       }
+    }
+
+    // E. Corner Technical Blueprint HUD (Directly from the video)
+    const hudX = 24, hudY = window.innerHeight - 80;
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.rect(hudX, hudY, 220, 60);
+    ctx.stroke();
+
+    ctx.fillStyle = activeTheme.primary;
+    ctx.font = "10px ui-monospace, SFMono-Regular, monospace";
