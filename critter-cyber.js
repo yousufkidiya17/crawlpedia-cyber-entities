@@ -1438,3 +1438,15 @@
         ctx.restore();
       }
 
+    } else {
+      // ROVER: Cybernetic box chassis with sweeping laser fan beam
+      ctx.translate(pos.x, pos.y);
+      ctx.rotate(angle);
+
+      const fanAngle = Math.sin(now * 0.006) * 0.35;
+      const fanGrad = ctx.createRadialGradient(0, 0, 10, 0, 0, 180);
+      fanGrad.addColorStop(0, activeTheme.glow);
+      fanGrad.addColorStop(1, "transparent");
+      ctx.fillStyle = fanGrad;
+      ctx.beginPath();
+      ctx.moveTo(15, 0);
