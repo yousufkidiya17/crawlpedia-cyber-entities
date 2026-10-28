@@ -1426,3 +1426,15 @@
           ctx.fillStyle = "#ffffff";
           ctx.beginPath(); ctx.arc(4, -3, 2, 0, Math.PI * 2); ctx.fill();
           ctx.beginPath(); ctx.arc(4, 3, 2, 0, Math.PI * 2); ctx.fill();
+
+          const antWave = Math.sin(now * 0.01) * 6;
+          ctx.strokeStyle = activeTheme.primary;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(8, -4); ctx.lineTo(26, -14 + antWave);
+          ctx.moveTo(8, 4); ctx.lineTo(26, 14 - antWave);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
