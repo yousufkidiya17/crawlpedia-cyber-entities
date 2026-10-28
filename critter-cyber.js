@@ -1486,3 +1486,15 @@
       cardX = Math.max(16, Math.min(window.innerWidth - cardW - 16, cardX));
       const cardY = Math.max(70, anchorY - cardH - 36);
 
+      // Vertical Laser Hologram Projector Thread
+      ctx.strokeStyle = activeTheme.primary;
+      ctx.lineWidth = 1.2;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(anchorX, anchorY - 12);
+      ctx.lineTo(cardX + cardW * 0.5, cardY + cardH);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Holographic Card Backdrop (Dark glassmorphism)
+      ctx.fillStyle = "rgba(7, 10, 15, 0.96)";
