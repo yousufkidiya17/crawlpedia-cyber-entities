@@ -1402,3 +1402,15 @@
           const footX = lx + side * legLen * 0.7 + legWave * 6;
           const footY = side * legLen * 0.9 - legWave * 8;
 
+          ctx.strokeStyle = activeTheme.primary;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(0, side * segH * 0.5);
+          ctx.lineTo(footX * 0.5, footY * 0.4);
+          ctx.lineTo(footX, footY);
+          ctx.stroke();
+
+          ctx.fillStyle = "#ffffff";
+          ctx.beginPath(); ctx.arc(footX, footY, 1.5, 0, Math.PI * 2); ctx.fill();
+        }
+
