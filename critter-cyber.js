@@ -1522,3 +1522,15 @@
       ctx.font = "bold 13px ui-monospace, SFMono-Regular, monospace";
       const phoneticText = currentDefinition.phonetic ? ` ${currentDefinition.phonetic}` : "";
       ctx.fillText(`${currentDefinition.word.toUpperCase()}${phoneticText}`, cardX + 12, cardY + 33);
+
+      // Definition lines wrapping
+      ctx.fillStyle = "#cbd5e1";
+      ctx.font = "10px ui-monospace, SFMono-Regular, monospace";
+      const maxTextWidth = cardW - 24;
+      const words = (currentDefinition.text || "").split(" ");
+      let line = "";
+      let lineY = cardY + 50;
+      let lineCount = 0;
+
+      for (let i = 0; i < words.length && lineCount < 2; i++) {
+        const testLine = line + (line ? " " : "") + words[i];
