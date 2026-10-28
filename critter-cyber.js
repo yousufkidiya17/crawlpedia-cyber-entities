@@ -1414,3 +1414,15 @@
           ctx.beginPath(); ctx.arc(footX, footY, 1.5, 0, Math.PI * 2); ctx.fill();
         }
 
+        ctx.fillStyle = i === 0 ? "#05070a" : "rgba(10, 15, 20, 0.95)";
+        ctx.strokeStyle = activeTheme.primary;
+        ctx.lineWidth = i === 0 ? 2 : 1.2;
+        ctx.beginPath();
+        ctx.roundRect(-segW * 0.5, -segH * 0.5, segW, segH, 2);
+        ctx.fill();
+        ctx.stroke();
+
+        if (i === 0) {
+          ctx.fillStyle = "#ffffff";
+          ctx.beginPath(); ctx.arc(4, -3, 2, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(4, 3, 2, 0, Math.PI * 2); ctx.fill();
