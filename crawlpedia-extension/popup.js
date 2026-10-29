@@ -10,3 +10,14 @@ document.getElementById("spawnBtn").addEventListener("click", async () => {
 });
 
 document.getElementById("dismissBtn").addEventListener("click", async () => {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (tab?.id) {
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: () => {
+        if (window.__crawlpediaTerminate) window.__crawlpediaTerminate();
+      }
+    });
+    window.close();
+  }
+});
