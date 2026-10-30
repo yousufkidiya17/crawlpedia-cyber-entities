@@ -154,3 +154,15 @@ flowchart TD
 3. Enable **Developer mode** using the toggle switch in the sidebar / top-right corner.
 4. Click **Load unpacked** (Load extension from directory).
 5. Select the `crawlpedia-extension/` folder located at:
+   ```
+   crawlpedia-cyber-entities/crawlpedia-extension
+   ```
+6. Navigate to any webpage (e.g., Wikipedia, GitHub, documentation), press <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> or click the toolbar icon, and watch the entity materialize!
+
+---
+
+### Option 2: Standalone Script / DevTools Console Injection
+
+Run the complete standalone engine instantly without installing the extension:
+
+1. Open any webpage in your browser.
