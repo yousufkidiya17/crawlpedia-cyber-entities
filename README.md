@@ -58,3 +58,15 @@ Traditional pathing produces wide circular drifts when targets appear behind the
 This completely eliminates sudden 42px wall halts and provides silky hovering deceleration.
 
 ---
+
+### 3. Tactile Particle Physics & Ground Feedback
+- **Electric Footstep Sparks**: Every time a leg completes a step cycle ($\text{lift} \le 0$), it triggers micro-bursts of high-velocity spark particles that decay along a quadratic alpha curve.
+- **Ground Shockwave Ripples**: Concentric shockwave rings expand at $65\text{px/s}$ with crosshair ticks marking exact coordinates of physical contact.
+- **Inter-Leg Laser Filaments**: Quadratic Bezier catenary curves span across adjacent leg pairs with traveling glowing data packets ($t \in [0, 1]$).
+- **Surface Draglines**: As the entity traverses the page, it anchors tensile laser silk filaments across DOM scroll space.
+
+---
+
+## 🎮 Morphology Modes & Cyber Palettes
+
+| Mode | Key | Kinematic Engine | Mechanical Behavior |
