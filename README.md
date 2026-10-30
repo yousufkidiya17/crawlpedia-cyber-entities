@@ -118,3 +118,15 @@ flowchart TD
         Steering --> Kinematics{Mode Selector}
         Kinematics -->|Spider| IK[3-Point Law-of-Cosines IK Solver]
         Kinematics -->|Centipede| Chain[Chained Distance Constraints]
+        Kinematics -->|Rover| Skid[Mechanical Pivot Physics]
+    end
+
+    subgraph Audio & FX Subsystems
+        IK --> Footfalls[Paw Contact Trigger]
+        Footfalls --> Sparks[Electric Spark Particle Pool]
+        Footfalls --> Ripples[Concentric Shockwave Rings]
+        Footfalls --> Sound[Web Audio API Procedural Synth]
+    end
+
+    subgraph Canvas Renderer
+        Sparks --> Canvas60FPS[Full-Screen Transparent Overlay Canvas]
