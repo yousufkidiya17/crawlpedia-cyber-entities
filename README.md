@@ -34,3 +34,15 @@ Unlike traditional static web overlays or animated GIFs, Crawlpedia injects an i
 
 ### 1. 3-Point Law-of-Cosines Inverse Kinematics (Spider Mode)
 Each of the 8 spider limbs is calculated via an analytical 2-segment planar kinematic chain ($l_1 = 30\text{px}$, $l_2 = 36\text{px}$). For any coxa anchor $\mathbf{A}(x_a, y_a)$ and target foot resting vector $\mathbf{F}(x_f, y_f)$:
+
+$$\text{Distance } d = \min\left(\sqrt{(x_f - x_a)^2 + (y_f - y_a)^2},\; l_1 + l_2 - 0.5\right)$$
+
+$$\alpha = \arccos\left(\text{clamp}\left(\frac{l_1^2 + d^2 - l_2^2}{2 \cdot l_1 \cdot d},\; -1,\; 1\right)\right)$$
+
+$$\theta_{\text{knee}} = \operatorname{atan2}(y_f - y_a, x_f - x_a) + \alpha \cdot \text{bendSide}$$
+
+$$\mathbf{K}_{\text{knee}} = \begin{bmatrix} x_a + l_1 \cos(\theta_{\text{knee}}) \\ y_a + l_1 \sin(\theta_{\text{knee}}) \end{bmatrix}$$
+
+This produces anatomically accurate leg bend curvature with zero jitter.
+
+---
