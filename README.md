@@ -190,3 +190,15 @@ crawlpedia-cyber-entities/
 ├── critter-cyber.js                 # Standalone single-file engine (Identical MD5 parity)
 ├── LICENSE                          # MIT Open-Source License
 └── README.md                        # Documentation & engineering specification
+```
+
+---
+
+## 🔒 Memory Safety & Lifecycle Guarantees
+
+- **Zero Memory Leaks**: Uses strictly named listener handlers (`handleKeyDown`, `handlePointerDown`, `handlePointerMove`) registered on the `window` object. Calling `terminate()` cleanly disposes all event handlers and detaches the canvas from the DOM.
+- **Non-Destructive DOM Injection**: The overlay canvas is styled with `pointer-events: none !important;` ensuring native page scrolling, text selection, link clicking, and form inputs remain completely undisturbed.
+- **Garbage-Collector Friendly**: Particle arrays for sparks, shockwave rings, and radar waves are maintained via in-place splicing and bounded circular buffers, preventing heap fragmentation.
+
+---
+
