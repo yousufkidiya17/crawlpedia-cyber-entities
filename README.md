@@ -82,3 +82,15 @@ This completely eliminates sudden 42px wall halts and provides silky hovering de
 - 💜 **Electric Violet**: Primary `#b026ff` | Ultraviolet Glow `rgba(176, 38, 255, 0.4)`
 - 💛 **Solar Amber**: Primary `#ffb700` | Industrial Hazard Glow `rgba(255, 183, 0, 0.4)`
 
+---
+
+## ⌨️ Interactive Controls & Shortcuts
+
+All hotkeys function seamlessly inside active webpage viewports without interfering with native typing inputs:
+
+| Keybinding | Action | Description |
+| :--- | :--- | :--- |
+| <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> | **Global Toggle** | Spawn or dismiss the entity across any active tab |
+| <kbd>Space</kbd> | **Pause / Resume** | Freeze physics loop in place for inspection |
+| <kbd>M</kbd> | **Switch Morphology** | Cycle through Spider $\rightarrow$ Centipede $\rightarrow$ Rover |
+| <kbd>C</kbd> | **Cycle Palettes** | Switch between 5 high-contrast cyber wireframe themes |
