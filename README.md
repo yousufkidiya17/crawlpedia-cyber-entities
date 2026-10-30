@@ -130,3 +130,15 @@ flowchart TD
 
     subgraph Canvas Renderer
         Sparks --> Canvas60FPS[Full-Screen Transparent Overlay Canvas]
+        Ripples --> Canvas60FPS
+        IK --> Canvas60FPS
+        Chain --> Canvas60FPS
+        Skid --> Canvas60FPS
+        Canvas60FPS --> HUD[Technical Blueprint HUD & Telemetry]
+    end
+```
+
+---
+
+## 📦 Installation & Setup
+
