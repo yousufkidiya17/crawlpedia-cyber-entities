@@ -178,3 +178,15 @@ Run the complete standalone engine instantly without installing the extension:
 ```
 crawlpedia-cyber-entities/
 ├── crawlpedia-extension/            # Production Manifest V3 Chrome/Edge Extension
+│   ├── manifest.json                # MV3 configuration & permissions
+│   ├── background.js                # Service worker for global hotkey handling
+│   ├── content.js                   # Injected 60 FPS Canvas IK runtime engine
+│   ├── popup.html                   # Extension controller interface & shortcuts HUD
+│   ├── popup.js                     # Popup state dispatcher & message router
+│   └── icons/                       # High-res extension icons (16px, 48px, 128px)
+│       ├── icon16.png
+│       ├── icon48.png
+│       └── icon128.png
+├── critter-cyber.js                 # Standalone single-file engine (Identical MD5 parity)
+├── LICENSE                          # MIT Open-Source License
+└── README.md                        # Documentation & engineering specification
