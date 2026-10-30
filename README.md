@@ -106,3 +106,15 @@ All hotkeys function seamlessly inside active webpage viewports without interfer
 
 ## 🛠️ Architecture & Dataflow
 
+```mermaid
+flowchart TD
+    subgraph Browser DOM Viewport
+        Cursor[User Cursor / Mouse Events] --> InputGate[Pointer & Key Listener]
+        Webpage[Live Webpage DOM] --> DOMScanner[Text Node Coordinate Scanner]
+    end
+
+    subgraph Kinematic Engine
+        InputGate --> Steering[Reynolds Proportional Arrival & Heading Calc]
+        Steering --> Kinematics{Mode Selector}
+        Kinematics -->|Spider| IK[3-Point Law-of-Cosines IK Solver]
+        Kinematics -->|Centipede| Chain[Chained Distance Constraints]
