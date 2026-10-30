@@ -166,3 +166,15 @@ flowchart TD
 Run the complete standalone engine instantly without installing the extension:
 
 1. Open any webpage in your browser.
+2. Press <kbd>F12</kbd> (or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>) to open DevTools.
+3. Switch to the **Console** tab.
+4. Copy and paste the entire contents of [critter-cyber.js](critter-cyber.js) into the console and hit <kbd>Enter</kbd>.
+5. The entity will mount and track immediately. Press <kbd>Esc</kbd> anytime to dismiss cleanly.
+
+---
+
+## 📂 Repository Directory Layout
+
+```
+crawlpedia-cyber-entities/
+├── crawlpedia-extension/            # Production Manifest V3 Chrome/Edge Extension
