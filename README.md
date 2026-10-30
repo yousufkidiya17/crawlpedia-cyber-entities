@@ -94,3 +94,15 @@ All hotkeys function seamlessly inside active webpage viewports without interfer
 | <kbd>Space</kbd> | **Pause / Resume** | Freeze physics loop in place for inspection |
 | <kbd>M</kbd> | **Switch Morphology** | Cycle through Spider $\rightarrow$ Centipede $\rightarrow$ Rover |
 | <kbd>C</kbd> | **Cycle Palettes** | Switch between 5 high-contrast cyber wireframe themes |
+| <kbd>T</kbd> | **Auto Search Mission** | Initiate autonomous DOM exploration mode |
+| <kbd>S</kbd> | **Mute / Unmute Audio** | Toggle procedural Web Audio click & sonar soundscapes |
+| <kbd>R</kbd> | **Radar Ping** | Manually trigger $260\text{px}$ sonar telemetry sweep |
+| <kbd>V</kbd> | **Voice Pronunciation** | Auditory phonetic pronunciation of current target |
+| <kbd>1</kbd> - <kbd>9</kbd> | **Target Locked Strike** | Instant tactical sprint towards fixed grid sectors |
+| <kbd>Left Click</kbd> | **Target Re-Route** | Click anywhere on the webpage to command entity destination |
+| <kbd>Esc</kbd> | **Clean Dismiss** | Safely unmount canvas, audio nodes, and event listeners |
+
+---
+
+## 🛠️ Architecture & Dataflow
+
