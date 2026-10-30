@@ -22,3 +22,15 @@
 
 ---
 
+## ⚡ Executive Summary
+
+**Crawlpedia Cyber Edition** is a high-performance, autonomous mechanical browser companion engineered with procedural **Inverse Kinematics (IK)**, real-time **Reynolds Arrival Steering**, and dynamic **Web Audio API** procedural sound synthesis. 
+
+Unlike traditional static web overlays or animated GIFs, Crawlpedia injects an isolated, zero-overhead HTML5 Canvas viewport directly over any live webpage (`z-index: 999999`, `pointer-events: none`). The entity dynamically crawls across the DOM, tracks cursor coordinates, anchors catenary laser filaments, and emits electric sparks upon footfall impact—all running at a locked **60 FPS** with zero frame drops or memory leaks.
+
+---
+
+## 🔬 Core Engineering Highlights
+
+### 1. 3-Point Law-of-Cosines Inverse Kinematics (Spider Mode)
+Each of the 8 spider limbs is calculated via an analytical 2-segment planar kinematic chain ($l_1 = 30\text{px}$, $l_2 = 36\text{px}$). For any coxa anchor $\mathbf{A}(x_a, y_a)$ and target foot resting vector $\mathbf{F}(x_f, y_f)$:
