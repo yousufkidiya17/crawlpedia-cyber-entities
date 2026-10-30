@@ -70,3 +70,15 @@ This completely eliminates sudden 42px wall halts and provides silky hovering de
 ## 🎮 Morphology Modes & Cyber Palettes
 
 | Mode | Key | Kinematic Engine | Mechanical Behavior |
+| :--- | :---: | :--- | :--- |
+| **Arachnid (Spider)** | `M` | 8-Legged 3-Point IK Solver | Real-time multi-legged trot gait, catenary laser webs, sensory feelers |
+| **Centipede** | `M` | Multi-Segment Chained Invariants | 16 chained vertebrae with tangent-following distance constraints |
+| **Rover** | `M` | Mechanical Dual-Axle Chassis | Tank-style skid steering with rigid wheel telemetry |
+
+### Dynamic Neon Themes (`C` Key)
+- 🩵 **Cyan Synth**: Primary `#00f0ff` | Neon Glow `rgba(0, 240, 255, 0.4)`
+- 💚 **Toxic Lime**: Primary `#00ff66` | Emerald Glow `rgba(0, 255, 102, 0.4)`
+- ❤️ **Neon Crimson**: Primary `#ff003c` | Pink-Red Glow `rgba(255, 0, 60, 0.4)`
+- 💜 **Electric Violet**: Primary `#b026ff` | Ultraviolet Glow `rgba(176, 38, 255, 0.4)`
+- 💛 **Solar Amber**: Primary `#ffb700` | Industrial Hazard Glow `rgba(255, 183, 0, 0.4)`
+
