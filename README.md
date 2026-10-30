@@ -214,3 +214,9 @@ Contributions, feedback, and optimization suggestions are warmly welcomed:
 
 ---
 
+## 📄 License
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+Developed with precision for autonomous browser companion engineering.
+
