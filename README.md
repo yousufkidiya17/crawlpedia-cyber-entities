@@ -142,3 +142,15 @@ flowchart TD
 
 ## 📦 Installation & Setup
 
+### Option 1: Microsoft Edge / Google Chrome (Extension MV3)
+
+1. **Clone or Download the Repository:**
+   ```bash
+   git clone https://github.com/yousufkidiya17/crawlpedia-cyber-entities.git
+   ```
+2. Open your browser and navigate to the Extensions management page:
+   - **Microsoft Edge**: `edge://extensions/`
+   - **Google Chrome**: `chrome://extensions/`
+3. Enable **Developer mode** using the toggle switch in the sidebar / top-right corner.
+4. Click **Load unpacked** (Load extension from directory).
+5. Select the `crawlpedia-extension/` folder located at:
