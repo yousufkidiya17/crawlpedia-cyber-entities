@@ -8,6 +8,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-ff003c?style=for-the-badge)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-purple?style=for-the-badge)](https://github.com/yousufkidiya17/crawlpedia-cyber-entities/pulls)
 
+**Live Demo (no install):** https://yousufkidiya17.github.io/crawlpedia-cyber-entities/demo.html
+
 ---
 
 ```
