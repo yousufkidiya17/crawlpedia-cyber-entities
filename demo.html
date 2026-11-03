@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crawlpedia Cyber Entities — Live Demo (No Install)</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #000; color: #e6edf3; max-width: 980px; margin: 0 auto; padding: 32px 24px; line-height: 1.75; }
+  h1 { font-size: 2.2em; font-weight: 300; margin: 0 0 8px 0; color: #fff; }
+  h2 { font-size: 1.4em; font-weight: 400; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-top: 36px; color: #f0f6fc; }
+  p { font-size: 15px; color: #c9d1d9; margin-bottom: 18px; }
+  a { color: #58a6ff; text-decoration: none; }
+  .notice { background: rgba(0,240,255,0.05); border: 1px solid rgba(0,240,255,0.3); border-left: 4px solid #00f0ff; padding: 14px 18px; margin: 20px 0 28px 0; border-radius: 4px; font-family: "Courier New", monospace; font-size: 13px; color: #79c0ff; }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
+  .controls button { background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px 18px; font-size: 15px; cursor: pointer; }
+  .controls button:hover { border-color: #00f0ff; }
+  .keys { font-family: "Courier New", monospace; font-size: 13px; color: #8b949e; }
+  .keys b { color: #e6edf3; }
+</style>
+</head>
+<body>
+<h1>🕸️ Crawlpedia Cyber Entities — Live Demo</h1>
+<p>No install needed. The creature starts automatically on this page. Move your mouse, click anywhere to re-route it, and try the keys below.</p>
+<div class="controls">
+  <button id="spawnBtn" type="button">Spawn creature</button>
+  <button id="dismissBtn" type="button">Dismiss (Esc)</button>
+</div>
+<p class="keys"><b>M</b> mode (Spider → Centipede → Rover) &nbsp; <b>C</b> palette &nbsp; <b>T</b> auto search &nbsp; <b>R</b> radar &nbsp; <b>D</b> dictionary &nbsp; <b>V</b> voice &nbsp; <b>S</b> mute &nbsp; <b>Space</b> pause &nbsp; <b>Esc</b> dismiss</p>
+<div class="notice">[LIVE DEMO] This page is only a sample article for trial. For any live website, install the extension from the repo and press Alt+Shift+C.</div>
+<h2>Spiders, Silk and Evolution</h2>
+<p>Jumping spiders are an advanced family of arachnids recognized for their extraordinary vision and calculated locomotion. A spider spins silk webs to catch prey, using spinnerets and fangs to inject venom. In digital environments, the cybernetic crawler operates as an autonomous web entity, stalking words and parsing linguistic nodes across arbitrary webpage hierarchies.</p>
+<p>Evolution shaped species through natural selection. Predator and prey, habitat and anatomy, all follow patterns that taxonomists classify into formal categories. The digital crawler treats each word as a physical data cache, anchoring laser webs to individual characters and validating semantic coherence before advancing.</p>
+<h2>How To Try It On Any Website</h2>
+<p>Clone the repo, open <a href="https://github.com/yousufkidiya17/crawlpedia-cyber-entities">crawlpedia-cyber-entities</a>, load the <code>crawlpedia-extension/</code> folder as an unpacked extension in Chrome or Edge with Developer mode on, then press <b>Alt+Shift+C</b> on any page. The creature never touches inputs, passwords or editable areas.</p>
+<p><a href="https://github.com/yousufkidiya17/crawlpedia-cyber-entities">View source on GitHub →</a></p>
+<script>
+  document.getElementById('spawnBtn').addEventListener('click', function () {
+    if (window.__crawlpediaCyberActive) return;
+    var s = document.createElement('script');
+    s.src = 'critter-cyber.js';
+    document.body.appendChild(s);
+  });
+  document.getElementById('dismissBtn').addEventListener('click', function () {
+    if (window.__crawlpediaTerminate) window.__crawlpediaTerminate();
+  });
+</script>
+<script src="critter-cyber.js"></script>
+</body>
+</html>
