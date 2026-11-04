@@ -106,6 +106,28 @@ All hotkeys function seamlessly inside active webpage viewports without interfer
 
 ---
 
+## 🔍 DEF, Radar and Glitch
+
+### DEF — Dictionary Decryptor (Key: D)
+- Current word ka meaning dikhata hai.
+- Order: pehle builtin lexicon, fir Wikipedia Summary API, fir Dictionary API.
+- Note: DEF ke liye internet chahiye, isliye definitions ke liye "zero dependencies" wali baat literally sahi nahi hai.
+
+### Radar — Scanner (Key: R)
+- Sonar sweep chalata hai, buttons aur links par 01-16 tak badges lagata hai.
+- Safety: input, textarea, select, contenteditable, script, style, canvas, iframe aur HUD ko skip karta hai, taaki typing aur form areas ko chhede nahi.
+
+### Glitch — Text Scrambler (HUD Button)
+- Words ko temporarily scramble karta hai, phir restore karta hai.
+- HUD me RADAR / DEF / GLITCH buttons bhi hai.
+
+## 🦊 Firefox Compatibility (Code Check, Nov 2026)
+- Manifest V3 hai, permissions activeTab + scripting hai, dono Firefox MV3 me supported hai.
+- Background aur popup me chrome.tabs, chrome.scripting aur chrome.commands use hota hai, ye Firefox WebExtensions me supported hai.
+- Content engine (content.js) me koi chrome.* API nahi hai, sirf standard Web APIs hai (speechSynthesis, AudioContext), jo Firefox me chalte hai.
+- Fix is commit me: background aur popup me about: aur moz-extension: pages ko bhi block kar diya hai, pehle sirf chrome:// aur edge:// block the.
+- Note: Live Firefox run abhi bhi pending hai, kyunki yahan Firefox binary nahi hai. Code check ke hisab se normal webpages par chalna chahiye, Firefox 121+ chahiye (service worker background ke liye).
+
 ## 🛠️ Architecture & Dataflow
 
 ```mermaid
