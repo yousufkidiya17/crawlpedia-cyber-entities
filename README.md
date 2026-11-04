@@ -41,7 +41,7 @@ $$\text{Distance } d = \min\left(\sqrt{(x_f - x_a)^2 + (y_f - y_a)^2},\; l_1 + l
 
 $$\alpha = \arccos\left(\text{clamp}\left(\frac{l_1^2 + d^2 - l_2^2}{2 \cdot l_1 \cdot d},\; -1,\; 1\right)\right)$$
 
-$$\theta_{\text{knee}} = \operatorname{atan2}(y_f - y_a, x_f - x_a) + \alpha \cdot \text{bendSide}$$
+$$\theta_{\text{knee}} = \text{atan2}(y_f - y_a, x_f - x_a) + \alpha \cdot \text{bendSide}$$
 
 $$\mathbf{K}_{\text{knee}} = \begin{bmatrix} x_a + l_1 \cos(\theta_{\text{knee}}) \\ y_a + l_1 \sin(\theta_{\text{knee}}) \end{bmatrix}$$
 
@@ -54,7 +54,7 @@ Traditional pathing produces wide circular drifts when targets appear behind the
 
 - **Angle-Gated Throttle**: When angular error $|\Delta\theta| > 35^\circ$ ($0.6\text{ rad}$), the forward surge throttles down to $18\% - 25\%$, while rotational angular speed surges to $20.0\text{ rad/s}$ ($1145^\circ/\text{s}$). The entity pivots crisply on a dime before accelerating forward.
 - **Continuous Arrival Curve**:
-  $$\text{Ramp}(d) = \operatorname{clamp}\left(\frac{d - r_{\text{stop}}}{r_{\text{slow}} - r_{\text{stop}}},\; 0,\; 1\right) \quad \text{where } r_{\text{stop}} = 24\text{px},\; r_{\text{slow}} = 140\text{px}$$
+  $$\text{Ramp}(d) = \text{clamp}\left(\frac{d - r_{\text{stop}}}{r_{\text{slow}} - r_{\text{stop}}},\; 0,\; 1\right) \quad \text{where } r_{\text{stop}} = 24\text{px},\; r_{\text{slow}} = 140\text{px}$$
   $$v_{\text{desired}} = v_{\text{max}} \cdot \text{Ramp}(d) \cdot \max(0.18, \cos(\Delta\theta))$$
 
 This completely eliminates sudden 42px wall halts and provides silky hovering deceleration.
